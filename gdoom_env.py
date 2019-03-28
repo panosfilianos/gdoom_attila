@@ -162,7 +162,7 @@ class GDoomEnv(gym.Env):
         if self.mode == CPU:
             skiprate = 4
         else:
-            skiprate = 1
+            skiprate = 1 ##for human
 
         prev_misc = self.game.get_state().game_variables
         misc = prev_misc
@@ -173,7 +173,7 @@ class GDoomEnv(gym.Env):
             a_t = a_t.astype(int)
             self.game.make_action(a_t.tolist())
         elif action == -1 and self.mode == HUMAN:
-            self.game.make_action(  np.zeros([self.action_space.n]).tolist()   )
+            self.game.make_action(  np.zeros([self.action_space.n]).tolist()   )##this and following if are equal..no sense to differentiate the mode
         elif action == -1 and self.mode == CPU:
             self.game.make_action(  np.zeros([self.action_space.n]).tolist()   )
         elif self.mode == CPU:
@@ -192,11 +192,11 @@ class GDoomEnv(gym.Env):
             image_buffer = state.screen_buffer
             image_buffer = np.transpose(image_buffer.copy(), [1, 2, 0])
             misc = state.game_variables
-            info = {s: misc[k] for k,(s,_) in enumerate(collect_variables)}
+            info = {s: misc[k] for k,(s,_) in enumerate(collect_variables)}##it just saves the variables in a dictionary
 
             self.info['time_alive'] += 1
             self.info['kills'] = info['kills'] # total kills
-            if False:
+            if False: ##this is never executed
                 import matplotlib.pyplot as plt
                 plt.imshow(image_buffer.copy().swapaxes(0,1))
                 plt.show()
@@ -213,8 +213,8 @@ class GDoomEnv(gym.Env):
 
     def get_HWC(self):
         return 0
-    def shape_reward(self, r_t, misc, prev_misc, t=None):
-        # Check any kill count
+    def shape_reward(self, r_t, misc, , t=None):
+        # Check any kill countprev_misc
         if (misc[0] > prev_misc[0]):
             r_t = r_t + 1
 
@@ -307,7 +307,7 @@ if __name__ == "__main__":
 
     # Make a CPU environemnt the good ol' way (not recommended, see __init__.py).
     genv = WGDoomEnv(level=2, frame_size=89)
-    genv.reset()
+    genv.reset() ##It is already done in the init, i do not understant the need here
     a, _, _, _ = genv.step(0)
     print( np.asarray(a).shape )
 
