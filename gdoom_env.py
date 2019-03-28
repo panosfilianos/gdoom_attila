@@ -201,7 +201,7 @@ class GDoomEnv(gym.Env):
                 plt.imshow(image_buffer.copy().swapaxes(0,1))
                 plt.show()
 
-        r_t = self.shape_reward(r_t, misc, prev_misc)
+        r_t = self.shape_reward(r_t, misc, prev_misc) ##reward of the last game
 
         self.info['accumulated_reward'] += r_t
 
@@ -213,7 +213,7 @@ class GDoomEnv(gym.Env):
 
     def get_HWC(self):
         return 0
-    def shape_reward(self, r_t, misc, , t=None):
+    def shape_reward(self, r_t, misc, prev_misc, t=None): ##changed this one in prev_misc
         # Check any kill countprev_misc
         if (misc[0] > prev_misc[0]):
             r_t = r_t + 1
@@ -314,8 +314,7 @@ if __name__ == "__main__":
     # Also make a GPU environment, but using openai:
     env_cpu = gym.make("doom_scenario2_96-v0")
     frame = env_cpu.reset()
-    print("Frame size for cpu player: ", np.asarray(frame).shape )
-
+    print("Frame size for cpu player: ", np.asarray(frame).shape)
 
     env_human = gym.make("doom_scenario2_human-v0")
     frame = env_human.reset()
