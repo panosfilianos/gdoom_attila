@@ -180,7 +180,7 @@ class GDoomEnv(gym.Env):
             raise Exception("Error")
 
         self.game.advance_action(skiprate)
-        r_t = self.game.get_last_reward()
+        r_t = self.game.get_last_reward()#???????????????????????????????/
         is_finished = self.game.is_episode_finished()
         state = self.game.get_state()
         if is_finished:
