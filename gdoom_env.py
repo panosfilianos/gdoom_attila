@@ -248,7 +248,6 @@ from gym.envs.gdoom.wrappers.gdoom_wrappers import SetPlayingMode
 from gym.envs.gdoom.wrappers.gdoom_wrappers import GRewardScaler, GPreprocessFrame
 from baselines.common.atari_wrappers import FrameStack
 
-
 def gdoom_openaigym_wrapper(Cls):
     class NewCls(object):
         def __init__(self,level=2, frame_size=64, mode=CPU, *args,**kwargs):
