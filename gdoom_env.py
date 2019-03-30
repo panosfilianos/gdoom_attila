@@ -298,11 +298,17 @@ def make_env(level=0, frame_size=96):
 class WGDoomEnv(GDoomEnv):
     pass
 
+def getPossibleAction(scenario):
+    if scenario == "basic" or scenario == "defend_the_center":
+        return np.identity(3, dtype=int).tolist()
+    else:
+        return np.identity(6,dtype=int).tolist()
 
 if __name__ == "__main__":
     print("GDoomEnv called")
     from gym.utils.play import play
     import numpy as np
+    import train
 
     # Make a CPU environemnt the good ol' way (not recommended, see __init__.py).
     genv = WGDoomEnv(level=2, frame_size=89)
@@ -320,4 +326,8 @@ if __name__ == "__main__":
     print("Frame size for homan player: ", np.asarray(frame).shape)
 
     # env2 = SetPlayingMode(target_mode=HUMAN)(env2)
-    play(env_cpu, fps=32)
+    isPlay = False
+    if isPlay:
+        play(env_cpu, fps=32)
+    else:
+        train.train(scenario = "defend_the_center", memory_size = 1000, stack_size = 4, batch_size = 64, resize = (120, 160), possible_action = getPossibleAction("defend_the_center"), game = genv.game)
