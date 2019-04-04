@@ -5,7 +5,7 @@ import time
 import matplotlib
 import numpy as np
 try:
-    matplotlib.use('GTK3Agg')
+    matplotlib.use('TkAgg')
     import matplotlib.pyplot as plt
 except Exception:
     pass
