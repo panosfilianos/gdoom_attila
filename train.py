@@ -1,67 +1,71 @@
-#import argparse
-import agent
+import os
+import shutil
+import threading
+import multiprocessing
+import tensorflow as tf
+
 from agent import *
+from utils.networks import *
 
+from time import sleep
+from time import time
 
-#if __name__ == '__main__':
-
-#    parser = argparse.ArgumentParser(description='Train options')
-
-#    parser.add_argument('--scenario', type=str, default='basic', metavar='S', help="scenario to use, either basic or deadly_corridor")
-#    parser.add_argument('--window', type=int, default=0, metavar='WIN', help="0: don't render screen | 1: render screen")
-##     parser.add_argument('--crop', type=int, default=0, metavar='CROP', help="Whether to crop screen or not")
-##     parser.add_argument('--coords', type=tuple, default=(30, 300, 60, 180), metavar='COOR', help="Cropping coordinates")
-#    parser.add_argument('--resize', type=tuple, default=(120, 160), metavar='RES', help="Size of the resized frame")
-#    parser.add_argument('--stack_size', type=int, default=4, metavar='SS', help="Number of frames to stack to create motion")
-#    parser.add_argument('--explore_start', type=float, default=1., metavar='EI', help="Initial exploration probability")
-#    parser.add_argument('--explore_stop', type=float, default=0.01, metavar='EL', help="Final exploration probability")
-#    parser.add_argument('--decay_rate', type=float, default=1e-3, metavar='DR', help="Decay rate of exploration probability")
-#    parser.add_argument('--memory_size', type=int, default=1000, metavar='MS', help="Size of the experience replay buffer")
-#    parser.add_argument('--batch_size', type=int, default=64, metavar='BS', help="Batch size")
-#    parser.add_argument('--gamma', type=float, default=.99, metavar='GAMMA', help="Discounting rate")
-#    parser.add_argument('--memory_type', type=str, default='uniform', metavar='MT', help="Uniform or prioritized replay buffer")
-#    parser.add_argument('--total_episodes', type=int, default=500, metavar='EPOCHS', help="Number of training episodes")
-#    parser.add_argument('--pretrain', type=int, default=100, metavar='PRE', help="number of initial experiences to put in the replay buffer")
-#    parser.add_argument('--frame_skip', type=int, default=4, metavar='FS', help="the number of frames to repeat the action on")
-#    parser.add_argument('--enhance', type=str, default='none', metavar='ENH', help="values : 'none', 'dueling'")
-#    parser.add_argument('--lr', type=float, default=1e-4, metavar='LR', help="The learning rate")
-#    parser.add_argument('--max_tau', type=int, default=100, metavar='LR', help="Number of steps to performe double q-learning update")
-#    parser.add_argument('--freq', type=int, default=50, metavar='FQ', help="Number of episodes to save model weights")
-#    parser.add_argument('--init_zeros', type=int, default=0, metavar='FQ', help="1: Initialize weigts to 0")
+def train_agents():
+    tf.reset_default_graph()
     
-#    args = parser.parse_args()
-#    game, possible_actions = create_environment(scenario = args.scenario, window = args.window)
-#    agent = Agent(possible_actions, args.scenario, memory = args.memory_type, max_size = args.memory_size, stack_size = args.stack_size, 
-#                 batch_size = args.batch_size, resize = args.resize)
-#    agent.train(game, total_episodes = args.total_episodes, pretrain = args.pretrain, frame_skip = args.frame_skip, enhance = args.enhance, lr = args.lr, max_tau = args.max_tau, explore_start = args.explore_start, explore_stop = args.explore_stop, decay_rate = args.decay_rate, gamma = args.gamma, freq = args.freq, init_zeros = args.init_zeros)
-def train(scenario, memory_type, memory_size, stack_size, batch_size, resize, possible_actions, game, total_episodes, pretrain, frame_skip, enhance, lr, max_tau, explore_start, explore_stop, decay_rate, gamma, freq, init_zeros):
-    agent = Agent(possible_actions, scenario, memory = memory_type, max_size = memory_size, stack_size = stack_size, batch_size = batch_size, resize = resize)
-    agent.train(game, total_episodes = total_episodes, pretrain = pretrain, frame_skip = frame_skip, enhance = enhance, lr = lr, max_tau = max_tau, explore_start = explore_start, explore_stop = explore_stop, decay_rate = decay_rate, gamma = gamma, freq = freq, init_zeros = init_zeros)
+    #Delete saves directory if not loading a model
+    if not params.load_model:
+        shutil.rmtree(params.model_path, ignore_errors=True)
+        shutil.rmtree(params.frames_path, ignore_errors=True)
+        shutil.rmtree(params.summary_path, ignore_errors=True)
 
 
+    #Create a directory to save models to
+    if not os.path.exists(params.model_path):
+        os.makedirs(params.model_path)
 
+    #Create a directory to save episode playback gifs to
+    if not os.path.exists(params.frames_path):
+        os.makedirs(params.frames_path)
 
+    with tf.device("/cpu:0"): 
+        
+        # Generate global networks : Actor-Critic and ICM
+        master_network = AC_Network(state_size, action_size, 'global') # Generate global AC network
+        if params.use_curiosity:
+            master_network_P = StateActionPredictor(state_size, action_size, 'global_P') # Generate global AC network
+        
+        # Set number of workers
+        if params.num_workers == -1:
+            num_workers = multiprocessing.cpu_count()
+        else:
+            num_workers = params.num_workers
+        
+        # Create worker classes
+        workers = []
+        for i in range(num_workers):
+            trainer = tf.train.AdamOptimizer(learning_rate=params.lr)
+            workers.append(Worker(i, state_size, action_size, trainer, params.model_path))
+        saver = tf.train.Saver(max_to_keep=5)
 
+        
+    with tf.Session() as sess:
+        
+        # Loading pretrained model
+        if params.load_model == True:
+            print ('Loading Model...')
+            ckpt = tf.train.get_checkpoint_state(model_path)
+            saver.restore(sess,ckpt.model_checkpoint_path)
+        else:
+            sess.run(tf.global_variables_initializer())
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        # Starting initialized workers, each in a separate thread.
+        coord = tf.train.Coordinator()
+        worker_threads = []
+        for worker in workers:
+            worker_work = lambda: worker.work(params.max_episodes,params.gamma,sess,coord,saver)
+            t = threading.Thread(target=(worker_work))
+            t.start()
+            sleep(0.5)
+            worker_threads.append(t)
+        coord.join(worker_threads)

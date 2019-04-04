@@ -7,6 +7,8 @@ import gym
 from gym import spaces, error
 import vizdoom
 
+from train import train_agents
+
 CPU = 101
 HUMAN = 102
 
@@ -279,6 +281,67 @@ def gdoom_openaigym_wrapper(Cls):
                 return x
     return NewCls
 
+
+
+def play(env, transpose=True, fps=30, zoom=None, callback=None, keys_to_action=None):
+    
+    train_agents()
+
+    # obs_s = env.observation_space
+    # assert type(obs_s) == gym.spaces.box.Box
+    # assert len(obs_s.shape) == 2 or (len(obs_s.shape) == 3 and obs_s.shape[2] in [1,3])
+    #
+    # if keys_to_action is None:
+    #     if hasattr(env, 'get_keys_to_action'):
+    #         keys_to_action = env.get_keys_to_action()
+    #     elif hasattr(env.unwrapped, 'get_keys_to_action'):
+    #         keys_to_action = env.unwrapped.get_keys_to_action()
+    #     else:
+    #         assert False, env.spec.id + " does not have explicit key to action mapping, " + \
+    #                       "please specify one manually"
+    # relevant_keys = set(sum(map(list, keys_to_action.keys()),[]))
+    #
+    # if transpose:
+    #     video_size = env.observation_space.shape[1], env.observation_space.shape[0]
+    # else:
+    #     video_size = env.observation_space.shape[0], env.observation_space.shape[1]
+    #
+    # if zoom is not None:
+    #     video_size = int(video_size[0] * zoom), int(video_size[1] * zoom)
+    #
+    # pressed_keys = []
+    # running = True
+    # env_done = True
+    #
+    # screen = pygame.display.set_mode(video_size)
+    # clock = pygame.time.Clock()
+    #
+    #
+    # while running:
+    #
+    #     if env_done:
+    #         env_done = False
+    #         obs = env.reset()
+    #     else:
+    #
+    #         #THIS IS WHERE IT GETS ITS ACTIONS
+    #         #THE ACTION ITSELF IS THE VALUE OF THE DICT:
+    #         #print(keys_to_action.get(tuple(sorted(pressed_keys)), 0))
+    #         #THE DICT HAS KEY AS ASCII VALUE OF THE BUTTON TO PRESS AND VALUE AS THE VALUE GIVEN TO IT BY THE ENV
+    #         action = keys_to_action.get(tuple(sorted(pressed_keys)), 1)
+    #         #added here because if you scroll those events in the pygame loop are registered only after human input
+    #         # pressed_keys.append(action)
+    #
+    #         prev_obs = obs
+    #         obs, rew, env_done, info = env.step(action)
+    #         if callback is not None:
+    #             callback(prev_obs, obs, action, rew, env_done, info)
+    #
+    #
+    #     pygame.display.flip()
+    #     clock.tick(fps)
+    # pygame.quit()
+
 from baselines.common.atari_wrappers import FrameStack
 
 # Standard stack when env used by learner. DEPRECATED
@@ -306,7 +369,7 @@ def getPossibleAction(scenario):
 
 if __name__ == "__main__":
     print("GDoomEnv called")
-    from gym.utils.play import play
+    # from gym.utils.play import play
     import numpy as np
     import train
 
@@ -326,7 +389,7 @@ if __name__ == "__main__":
     print("Frame size for homan player: ", np.asarray(frame).shape)
 
     # env2 = SetPlayingMode(target_mode=HUMAN)(env2)
-    isPlay = True
+    isPlay = False
     if isPlay:
         play(env_cpu, fps=32)
     else:
