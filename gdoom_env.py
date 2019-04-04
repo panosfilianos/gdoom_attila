@@ -287,6 +287,8 @@ def play(env, transpose=True, fps=30, zoom=None, callback=None, keys_to_action=N
     
     train_agents()
 
+
+
     # obs_s = env.observation_space
     # assert type(obs_s) == gym.spaces.box.Box
     # assert len(obs_s.shape) == 2 or (len(obs_s.shape) == 3 and obs_s.shape[2] in [1,3])
@@ -389,8 +391,8 @@ if __name__ == "__main__":
     print("Frame size for homan player: ", np.asarray(frame).shape)
 
     # env2 = SetPlayingMode(target_mode=HUMAN)(env2)
-    isPlay = False
+    isPlay = True
     if isPlay:
         play(env_cpu, fps=32)
-    else:
-        train.train(scenario = "defend_the_center", memory_size = 1000, stack_size = 4, batch_size = 64, resize = (120, 160), possible_action = getPossibleAction("defend_the_center"), game = genv.game)
+    # else:
+    #     train.train(scenario = "defend_the_center", memory_size = 1000, stack_size = 4, batch_size = 64, resize = (120, 160), possible_action = getPossibleAction("defend_the_center"), game = genv.game)
