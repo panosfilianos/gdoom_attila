@@ -326,7 +326,7 @@ if __name__ == "__main__":
     print("Frame size for homan player: ", np.asarray(frame).shape)
 
     # env2 = SetPlayingMode(target_mode=HUMAN)(env2)
-    isPlay = False
+    isPlay = True
     if isPlay:
         play(env_cpu, fps=32)
     else:
