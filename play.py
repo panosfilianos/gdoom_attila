@@ -22,3 +22,4 @@ def play_with_agent(params):
         print('Successfully loaded!')
 
         Agent.play_game(sess, params.play_episodes)
+
