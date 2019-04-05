@@ -47,7 +47,7 @@ class Worker():
         
         if params.use_curiosity:
             self.local_Pred = StateActionPredictor(s_size, a_size, self.name+"_P", trainer, player_mode)
-            self.update_local_ops_P = update_target_graph('global_P',self.name+"_P")  
+            self.update_local_ops_P = update_target_graph('global_P',self.name+"_P")
 
     
     def initialiaze_game_vars(self):

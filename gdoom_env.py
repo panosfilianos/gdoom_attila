@@ -158,8 +158,6 @@ class GDoomEnv(gym.Env):
             super().render(mode=mode)  # just raise an exception
         pass
 
-
-
     def step(self, action):
         if self.mode == CPU:
             skiprate = 4
