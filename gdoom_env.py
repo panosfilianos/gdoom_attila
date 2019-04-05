@@ -213,6 +213,7 @@ class GDoomEnv(gym.Env):
 
     def get_HWC(self):
         return 0
+
     def shape_reward(self, r_t, misc, prev_misc, t=None): ##changed this one in prev_misc
         # Check any kill countprev_misc
         if (misc[0] > prev_misc[0]):
