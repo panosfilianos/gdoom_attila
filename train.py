@@ -106,7 +106,7 @@ def train_agents():
             trainer = tf.train.AdamOptimizer(learning_rate=params.lr)  #paramaters like learning rate: epsilon, gamma and so on
 
             #See if it makes sense:
-            envs.append(make_env())   #Look at the parameters, there is level and framesize.
+            envs.append(make_env(i, state_size, action_size, trainer, params.model_path))   #Look at the parameters, there is level and framesize.
         saver = tf.train.Saver(max_to_keep=5)  #It saves and restores 5 checkpoints
 
     with tf.Session() as sess:
@@ -124,7 +124,7 @@ def train_agents():
         for env in envs:
 
             #Check if it respects the train function, it should be right if trais has not been changed in the while.
-            worker_work = lambda: train(env)
+            worker_work = lambda: train(env, params.max_episodes, params.gamma, sess, coord, saver)
             t = threading.Thread(target=(worker_work))
             t.start()
             sleep(0.5)
