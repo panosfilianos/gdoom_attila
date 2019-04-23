@@ -44,9 +44,9 @@ def train_agents():
         # Create worker classes
         workers = []
         for i in range(num_workers):
-            trainer = tf.train.AdamOptimizer(learning_rate=params.lr)
+            trainer = tf.train.AdamOptimizer(learning_rate=params.lr)  #paramaters like learning rate: epsilon, gamma and so on
             workers.append(Worker(i, state_size, action_size, trainer, params.model_path))
-        saver = tf.train.Saver(max_to_keep=5)
+        saver = tf.train.Saver(max_to_keep=5)  #It saves and restores checkpoints
 
         
     with tf.Session() as sess:

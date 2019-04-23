@@ -22,7 +22,7 @@ def create_environment(scenario = 'basic', no_window = False, actions_type="all"
     Parameters
     ---------------
     scenario : String, either 'basic' or 'deadly_corridor', the Doom scenario to use (default='basic')
-    window   : Boolea, whether to render the window of the game or not (default=False)
+    window   : Boolean, whether to render the window of the game or not (default=False)
     
     Returns
     ---------------

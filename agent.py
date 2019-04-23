@@ -47,7 +47,7 @@ class Worker():
         
         if params.use_curiosity:
             self.local_Pred = StateActionPredictor(s_size, a_size, self.name+"_P", trainer, player_mode)
-            self.update_local_ops_P = update_target_graph('global_P',self.name+"_P")  
+            self.update_local_ops_P = update_target_graph('global_P',self.name+"_P")
 
     
     def initialiaze_game_vars(self):
@@ -224,7 +224,9 @@ class Worker():
             return d_ammo * 0.5
         else:
             return -d_ammo * 0.5
-        
+        #Don't understand why this if. Return 0 is useless because 0*something = 0. Also the second one, why if < 0 return -? which means if negative return positive?
+
+
     def get_kill_reward(self):
         """
         Description
@@ -238,7 +240,7 @@ class Worker():
             return d_kill*100
         return 0
     
-    def get_custom_reward(self,game_reward):
+    def get_custom_reward(self, game_reward):
         """
         Description
         --------------
