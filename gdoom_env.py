@@ -86,6 +86,8 @@ class GDoomEnv(gym.Env):
         self.reset() # load buttons, etc.
 
 
+
+
     def get_keys_to_action(self):
         abut = self.game.get_available_buttons()
         print(abut)
@@ -182,20 +184,32 @@ class GDoomEnv(gym.Env):
         self.game.advance_action(skiprate)
 
         #added from a3c
-        reward = self.get_custom_reward(self.env.make_action(self.actions[action_index], 2))
+        # r_t = self.agent.get_custom_reward(self.env.make_action(self.actions[action_index], 2))
 
 
-        r_t = self.game.get_last_reward()#???????????????????????????????/
+        # r_t = self.game.get_last_reward()#???????????????????????????????/
         is_finished = self.game.is_episode_finished()
         state = self.game.get_state()
+
+        if done == False:
+            s1 = self.env.get_state().screen_buffer
+            self.agent.episode_frames.append(s1)
+            s1 = process_frame(s1, crop, resize)
+        else:
+            s1 = s
+
         if is_finished:
             if self.mode == HUMAN or self.mode == CPU:
                 print("Total reward accumulated: ", self.info['accumulated_reward'], " time alive ", self.info['time_alive'], " kills ", self.info['kills'])
             info = {}
             image_buffer = np.zeros(shape=self.observation_space.shape, dtype=np.uint8)
+            # think about having no change
+            # s1 = s
+
         else:
             image_buffer = state.screen_buffer
             image_buffer = np.transpose(image_buffer.copy(), [1, 2, 0])
+            self.agent.episode_frames.append(image_buffer)
             misc = state.game_variables
             info = {s: misc[k] for k,(s,_) in enumerate(collect_variables)}##it just saves the variables in a dictionary
 
@@ -206,7 +220,7 @@ class GDoomEnv(gym.Env):
                 plt.imshow(image_buffer.copy().swapaxes(0,1))
                 plt.show()
 
-        r_t = self.shape_reward(r_t, misc, prev_misc) ##reward of the last game
+        reward = self.shape_reward(reward, misc, prev_misc) ##reward of the last game
 
         self.info['accumulated_reward'] += r_t
 
@@ -220,6 +234,7 @@ class GDoomEnv(gym.Env):
         return 0
 
     def shape_reward(self, r_t, misc, prev_misc, t=None): ##changed this one in prev_misc
+        # CHANGED THIS to be a multiplication of the difference between them
         # Check any kill countprev_misc
         if (misc[0] > prev_misc[0]):
             r_t = r_t + 1
@@ -328,13 +343,26 @@ def train(env):
 
             prev_obs = obs
             obs, rew, env_done, info = env.step(action_index)
+
             if callback is not None:
                 #train the network here
-                callback(prev_obs, obs, action, rew, env_done, info)
+                callback(env, prev_obs, obs, action, rew, env_done, info)
 
         pygame.display.flip()
         clock.tick(fps)
     pygame.quit()
+
+
+def after_step_callback(env, prev_obs, obs, action, rew, env_done, info):
+    # Append step to buffer
+    enepisode_buffer.append([s, action_index, r, s1, d, v[0, 0]])
+
+    # Update variables
+    self.episode_values.append(v[0, 0])
+    self.episode_reward += r
+    s = s1
+    total_steps += 1
+    self.episode_step_count += 1
 
 
 

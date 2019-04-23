@@ -41,3 +41,5 @@ class Agent():
 
         else:
             return game_reward
+
+    def
