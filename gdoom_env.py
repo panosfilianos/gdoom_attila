@@ -71,7 +71,7 @@ class GDoomEnv(gym.Env, i, state_size, action_size, trainer, model_path):
 
     metadata = {'render.modes': ['human', 'rgb_array'], 'video.frames_per_second': 35}
 
-    def __init__(self, level=0, enable_sound=False):
+    def __init__(self, i, state_size, action_size, trainer, model_path, level=0, enable_sound=False):
         # tue.
         self.enable_sound = enable_sound
         self.is_initialized = False
@@ -86,6 +86,9 @@ class GDoomEnv(gym.Env, i, state_size, action_size, trainer, model_path):
         self.mode = CPU # or human
         self.level = level
         self.reset() # load buttons, etc.
+
+        #Add agents related to the environment
+        self.ag = Worker(i, state_size, action_size, trainer, model_path)
 
 
     def get_keys_to_action(self):
