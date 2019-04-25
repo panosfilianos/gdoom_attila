@@ -66,10 +66,12 @@ collect_variables = [ ('kills', GameVariable.KILLCOUNT),
 
 
 
-class GDoomEnv(gym.Env):
+class GDoomEnv(gym.Env, i, state_size, action_size, trainer, model_path):
+    #added parameters needed to initialize the agent/worker
+
     metadata = {'render.modes': ['human', 'rgb_array'], 'video.frames_per_second': 35}
 
-    def __init__(self, level=0, enable_sound=False):
+    def __init__(self, i, state_size, action_size, trainer, model_path, level=0, enable_sound=False):
         # tue.
         self.enable_sound = enable_sound
         self.is_initialized = False
@@ -84,6 +86,9 @@ class GDoomEnv(gym.Env):
         self.mode = CPU # or human
         self.level = level
         self.reset() # load buttons, etc.
+
+        #Add agents related to the environment
+        self.ag = Worker(i, state_size, action_size, trainer, model_path)
 
 
     def get_keys_to_action(self):
@@ -285,7 +290,9 @@ def gdoom_openaigym_wrapper(Cls):
                 return x
     return NewCls
 
-def train(env):
+def train(env, max_episodes, gamma, sess, coord, saver):
+    #added parameters needed from train.py
+
     obs_s = env.observation_space
     assert type(obs_s) == gym.spaces.box.Box
     assert len(obs_s.shape) == 2 or (len(obs_s.shape) == 3 and obs_s.shape[2] in [1, 3])
@@ -344,12 +351,14 @@ def play(env, transpose=True, fps=30, zoom=None, callback=None, keys_to_action=N
 from baselines.common.atari_wrappers import FrameStack
 
 # Standard stack when env used by learner. DEPRECATED
-def make_env(level=0, frame_size=96):
+def make_env(i, state_size, action_size, trainer, model_path, level=0, frame_size=96):
     """
     Create an environment with some standard wrappers.
     """
     raise DeprecationWarning("Oldie")
-    env = GDoomEnv(level=level)
+
+    #Check parameters
+    env = GDoomEnv(i, state_size, action_size, trainer, model_path)
     env = GRewardScaler(env, scale=1)
     env = GPreprocessFrame(env,size=frame_size)
     env = FrameStack(env, 4)
