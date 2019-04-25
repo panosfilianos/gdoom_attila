@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b323e6f4-0fcc-48af-8b3b-dab71c24921d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gdoom_env.py" beforeDir="false" afterPath="$PROJECT_DIR$/gdoom_env.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,7 +12,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/play.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -21,6 +21,11 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gdoom_utils.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -64,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gdoom_env.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7174">
-              <caret line="422" column="13" lean-forward="true" selection-start-line="422" selection-start-column="13" selection-end-line="422" selection-end-column="13" />
+            <state relative-caret-position="1088">
+              <caret line="394" column="5" selection-start-line="394" selection-start-column="5" selection-end-line="394" selection-end-column="5" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -165,7 +170,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966975" />
@@ -209,16 +213,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gdoom_env.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7174">
-          <caret line="422" column="13" lean-forward="true" selection-start-line="422" selection-start-column="13" selection-end-line="422" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="47">
@@ -243,6 +237,19 @@
         <state>
           <folding>
             <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gdoom_utils.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gdoom_env.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="394" column="5" selection-start-line="394" selection-start-column="5" selection-end-line="394" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>

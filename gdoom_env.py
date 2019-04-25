@@ -391,5 +391,5 @@ if __name__ == "__main__":
     isPlay = True
     if isPlay:
         play(env_cpu, fps=32)
-    # else:
-    #     train.train(scenario = "defend_the_center", memory_size = 1000, stack_size = 4, batch_size = 64, resize = (120, 160), possible_action = getPossibleAction("defend_the_center"), game = genv.game)
+    #else:
+    #   train.train(scenario = "defend_the_center", memory_size = 1000, stack_size = 4, batch_size = 64, resize = (120, 160), possible_action = getPossibleAction("defend_the_center"), game = genv.game)
