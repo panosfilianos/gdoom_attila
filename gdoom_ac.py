@@ -1,3 +1,11 @@
+import tensorflow as tf
+import tensorflow.contrib.slim as slim
+import numpy as np
+
+from utils.network_params import *
+
+import gdoom_utils
+
 class AC_Network():
 
     def __init__(self, s_size, a_size, scope, trainer=None, as_player=False):
@@ -50,13 +58,13 @@ class AC_Network():
             self.policy = slim.fully_connected(inputs=rnn_out,
                                                num_outputs=a_size,
                                                activation_fn=tf.nn.softmax,
-                                               weights_initializer=normalized_columns_initializer(0.01),
+                                               weights_initializer=gdoom_utils.normalized_columns_initializer(0.01),
                                                biases_initializer=None)
 
             self.value = slim.fully_connected(inputs=rnn_out,
                                               num_outputs=1,
                                               activation_fn=None,
-                                              weights_initializer=normalized_columns_initializer(1.0),
+                                              weights_initializer=gdoom_utils.normalized_columns_initializer(1.0),
                                               biases_initializer=None)
 
             # Only workers networks need loss functions and gradient updating when training.

@@ -4,9 +4,14 @@ import threading
 import multiprocessing
 import tensorflow as tf
 
-from agent import *
-from utils.networks import *
-from gdoom_env import *
+# from agent import *
+# from utils.networks import *
+# from gdoom_env import *
+
+from utils.network_params import *
+
+import gdoom_ac
+import gdoom_env
 
 from time import sleep
 from time import time
@@ -70,6 +75,7 @@ from time import time
 #        coord.join(worker_threads) #This call blocks until a set of threads have terminated.
 
 def train_agents():
+    model_path = './model'
     tf.reset_default_graph() #https://www.tensorflow.org/api_docs/python/tf/reset_default_graph
     
     #Delete saves directory if not loading a model
@@ -89,15 +95,17 @@ def train_agents():
 
     with tf.device("/cpu:0"):
         # Generate global networks : Actor-Critic and ICM
-        master_network = AC_Network(state_size, action_size, 'global') # Generate global AC network
-        if params.use_curiosity: #do not understand
-            master_network_P = StateActionPredictor(state_size, action_size, 'global_P') # Generate global AC network
+        master_network = gdoom_ac.AC_Network(state_size, action_size, 'global', resize) # Generate global AC network
+        # if params.use_curiosity: #do not understand
+        #     master_network_P = StateActionPredictor(state_size, action_size, 'global_P') # Generate global AC network
         
         # Set number of workers
         if params.num_workers == -1:
             num_workers = multiprocessing.cpu_count()
         else:
             num_workers = params.num_workers
+
+        num_workers = 1
         
         # Create worker classes
         envs = []
@@ -105,8 +113,15 @@ def train_agents():
             #Adam is an optimization algorithm that can used instead of the classical stochastic gradient descent procedure to update network weights iterative based in training data.ol
             trainer = tf.train.AdamOptimizer(learning_rate=params.lr)  #paramaters like learning rate: epsilon, gamma and so on
 
+
             #See if it makes sense:
-            envs.append(make_env(i, state_size, action_size, trainer, params.model_path))   #Look at the parameters, there is level and framesize.
+            envs.append(gdoom_env.WGDoomEnv(level=params.scenario,
+                                            i = i,
+                                            state_size = state_size,
+                                            action_size = action_size,
+                                            trainer = trainer,
+                                            frame_size=89,
+                                            model_path=params.model_path))   #Look at the parameters, there is level and framesize.
         saver = tf.train.Saver(max_to_keep=5)  #It saves and restores 5 checkpoints
 
     with tf.Session() as sess:
@@ -124,9 +139,18 @@ def train_agents():
         for env in envs:
 
             #Check if it respects the train function, it should be right if trais has not been changed in the while.
-            worker_work = lambda: train(env, params.max_episodes, params.gamma, sess, coord, saver)
+            worker_work = lambda: gdoom_env.train(env = env,
+                                                  max_episodes=params.max_episodes,
+                                                  gamma=params.gamma,
+                                                  sess=sess,
+                                                  coord=coord,
+                                                  saver=saver,
+                                                  callback=gdoom_env.after_step_callback)
             t = threading.Thread(target=(worker_work))
             t.start()
             sleep(0.5)
             worker_threads.append(t)
         coord.join(worker_threads) #This call blocks until a set of threads have terminated.
+
+if __name__ == "__main__":
+    train_agents()

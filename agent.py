@@ -8,6 +8,8 @@ from utils.utils import *
 from utils.network_params import *
 from utils.networks import *
 
+from vizdoom import GameVariable
+
 class Worker():
     
     def __init__(self, name, s_size, a_size, trainer=None, model_path=None, player_mode=False):
@@ -29,7 +31,7 @@ class Worker():
         """
         
         self.name = "worker_" + str(name)
-        self.number = name        
+        self.number = name
         
         if not player_mode:
             self.model_path = model_path
@@ -271,11 +273,11 @@ class Worker():
         Description
         --------------
         Choose action from stochastic policy.
-        
+
         Parameters
         --------------
         policy        : np.array, actions probabilities
-        deterministic : boolean, whether to 
+        deterministic : boolean, whether to
         """
         if deterministic:
             return np.argmax(policy[0])

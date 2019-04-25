@@ -1,6 +1,7 @@
 from utils.args import parse_arguments
 
 params = parse_arguments()
+print(params)
 
 import numpy as np
 
