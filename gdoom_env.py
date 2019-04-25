@@ -109,6 +109,9 @@ class GDoomEnv(gym.Env):
         self.level = name_to_settings_index_dict[level]
         self.reset() # load buttons, etc.
 
+        #Add agents related to the environment
+        self.ag = Worker(i, state_size, action_size, trainer, model_path)
+
 
 
 
