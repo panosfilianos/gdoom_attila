@@ -33,6 +33,7 @@ class Agent():
         self.last_total_health = 100.0
         self.last_total_ammo2 = 52
         self.last_total_kills = 0
+        self.policy_calls = 0
 
     def get_policy_action(self, sess, stack_obs, rnn_state):
         with sess.as_default(), sess.graph.as_default():
@@ -43,8 +44,14 @@ class Agent():
                                                        self.local_AC.state_in[1]: rnn_state[1]})
 
             #deterministic was False on the original code, change to False to debug
-            action_index = gdoom_agent_utils.choose_action_index(policy=a_dist,
+            if (self.policy_calls % 10 == 0):
+                action_index = gdoom_agent_utils.choose_action_index(policy=a_dist,
+                                                                 deterministic=True)
+            else:
+                action_index = gdoom_agent_utils.choose_action_index(policy=a_dist,
                                                                  deterministic=False)
+
+            self.policy_calls += 1
 
             return a_dist, v, rnn_state, action_index
 
@@ -58,9 +65,15 @@ class Agent():
         --------------
         game_reward : float, reward provided by the environment
         """
-        env.agent.last_total_health = env.game.get_game_variable(GameVariable.HEALTH)
-        env.agent.last_total_ammo2 = env.game.get_game_variable(GameVariable.AMMO2)
-        env.agent.last_total_kills = env.game.get_game_variable(GameVariable.KILLCOUNT)
+        # env.agent.last_total_health = env.game.get_game_variable(GameVariable.HEALTH)
+        # env.agent.last_total_ammo2 = env.game.get_game_variable(GameVariable.AMMO2)
+        # env.agent.last_total_kills = env.game.get_game_variable(GameVariable.KILLCOUNT)
+
+        if params.scenario == 'deadly_corridor':
+            return (game_reward/5) + gdoom_agent_utils.get_kill_reward(env=env)
+            # return (game_reward / 5 + gdoom_agent_utils.get_health_reward(env=env) + gdoom_agent_utils.get_kill_reward(env=env) + gdoom_agent_utils.get_ammo_reward(env=env)) / 100.
+            return (game_reward / 10) + 10 * gdoom_agent_utils.get_health_reward(env=env) + gdoom_agent_utils.get_kill_reward(env=env) + gdoom_agent_utils.get_ammo_reward(env=env)
+
         return game_reward
 
         if params.scenario == 'basic':
@@ -127,15 +140,24 @@ class Agent():
         discounted_rewards = gdoom_agent_utils.discount(self.rewards_plus,gamma)[:-1]
         self.value_plus = np.asarray(values.tolist() + [bootstrap_value])
         advantages = discounted_rewards - self.value_plus[:-1]
-        print(np.vstack(observations).shape)
-        print(discounted_rewards.shape)
+        # print(discounted_rewards.shape)
         # Update the local Actor-Critic network using gradients from loss
+
         feed_dict = {self.local_AC.target_v:discounted_rewards,
                      self.local_AC.inputs:np.vstack(observations),
                      self.local_AC.actions:actions,
                      self.local_AC.advantages:advantages,
                      self.local_AC.state_in[0]:self.batch_rnn_state[0],
                      self.local_AC.state_in[1]:self.batch_rnn_state[1]}
+
+        # for key, value in feed_dict.items():
+        #     if (key ==self.local_AC.inputs ):
+        #         print("key: {}".format(key))
+        #         print("val: {}".format(value))
+        #         try:
+        #             print("sh: {}".format(value.shape))
+        #         except:
+        #             pass
 
         if params.use_ppo:
             old_policy = sess.run([self.local_AC.responsible_outputs],feed_dict=feed_dict)

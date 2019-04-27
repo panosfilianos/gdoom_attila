@@ -24,7 +24,7 @@ class AC_Network():
         
         with tf.variable_scope(scope):
             #Input and visual encoding layers
-            self.inputs = tf.placeholder(shape=[None,s_size],dtype=tf.float32)
+            self.inputs = tf.placeholder(shape=[None,s_size * 4],dtype=tf.float32)
             self.imageIn = tf.reshape(self.inputs,shape=[-1,resize[0],resize[1],1])
             self.conv1 = slim.conv2d(activation_fn=tf.nn.elu, inputs=self.imageIn, num_outputs=16, kernel_size=[8,8], stride=[4,4], padding='VALID')
             self.conv2 = slim.conv2d(activation_fn=tf.nn.elu, inputs=self.conv1, num_outputs=32, kernel_size=[4,4], stride=[2,2], padding='VALID')
@@ -120,7 +120,7 @@ class StateActionPredictor(object):
         """
         
         with tf.variable_scope(scope):
-            input_shape = [None,s_size]
+            input_shape = [None,s_size * 4]
             self.s1 = phi1 = tf.placeholder(tf.float32, input_shape)
             self.s2 = phi2 = tf.placeholder(tf.float32, input_shape)
             self.aindex = aindex = tf.placeholder(shape=[None],dtype=tf.int32)

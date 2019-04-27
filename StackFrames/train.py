@@ -105,7 +105,7 @@ def train_agents():
         else:
             num_workers = params.num_workers
 
-        num_workers = 1
+        num_workers = 3
         
         # Create worker classes
         envs = []

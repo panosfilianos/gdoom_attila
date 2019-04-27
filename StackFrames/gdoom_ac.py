@@ -26,8 +26,9 @@ class AC_Network():
         with tf.variable_scope(scope):
             # Input and visual encoding layers
             # multiplied by 4 every time - improve
-            self.inputs = tf.placeholder(shape=[None, s_size * 4], dtype=tf.float32)
-            self.imageIn = tf.reshape(self.inputs, shape=[-1, resize[0], resize[1], 1])
+            i_size = s_size * 4
+            self.inputs = tf.placeholder(shape=[None, i_size], dtype=tf.float32)
+            self.imageIn = tf.reshape(self.inputs, shape=[-1, resize[0], resize[1], 4])
             self.conv1 = slim.conv2d(activation_fn=tf.nn.elu, inputs=self.imageIn, num_outputs=16, kernel_size=[8, 8],
                                      stride=[4, 4], padding='VALID')
             self.conv2 = slim.conv2d(activation_fn=tf.nn.elu, inputs=self.conv1, num_outputs=32, kernel_size=[4, 4],
@@ -92,8 +93,6 @@ class AC_Network():
 
                 # Loss functions
 
-                print("val: {}".format(self.value.get_shape()))
-                print("target_v: {}".format(self.target_v.get_shape()))
                 self.value_loss = 0.5 * tf.reduce_sum(tf.square(self.target_v - tf.reshape(self.value, [-1])))
                 self.entropy = - tf.reduce_sum(self.policy * tf.log(self.policy))
                 self.policy_loss = -tf.reduce_sum(policy_loss_)

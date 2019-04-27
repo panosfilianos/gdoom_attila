@@ -266,8 +266,10 @@ class GDoomEnv(gym.Env):
                 plt.imshow(image_buffer.copy().swapaxes(0,1))
                 plt.show()
 
+        # print(reward)
         # it is shaped before sent out
-        reward = self.shape_reward(reward, misc, prev_misc) ##reward of the last game
+
+        # reward = self.shape_reward(reward, misc, prev_misc) ##reward of the last game
 
         self.info['accumulated_reward'] += reward
 
