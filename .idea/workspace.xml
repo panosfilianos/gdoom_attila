@@ -2,13 +2,126 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b323e6f4-0fcc-48af-8b3b-dab71c24921d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Doom.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_vizdoom.ini" beforeDir="false" afterPath="$PROJECT_DIR$/_vizdoom.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gdoom_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/gdoom_agent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gdoom_env.py" beforeDir="false" afterPath="$PROJECT_DIR$/gdoom_env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image100.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image1000.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image1025.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image1050.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image1075.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image1100.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image1125.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image1150.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image1175.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image125.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image150.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image175.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image200.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image225.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image25.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image250.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image275.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image300.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image325.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image350.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image375.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image400.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image425.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image450.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image475.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image50.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image500.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image525.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image550.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image575.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image600.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image625.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image650.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image675.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image700.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image725.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image75.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image750.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image775.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image800.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image825.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image850.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image875.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image900.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image925.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image950.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/basic/image975.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c10.gif" beforeDir="false" afterPath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c10.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c100.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c110.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c120.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c130.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c140.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c150.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c160.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c170.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c180.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c190.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c20.gif" beforeDir="false" afterPath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c20.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c200.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c210.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c220.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c230.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c240.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c250.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c260.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c270.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c280.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c290.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c30.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c300.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c310.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c320.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c330.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c340.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c350.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c360.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c370.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c380.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c390.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c40.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c400.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c410.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c420.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c430.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c440.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c450.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c460.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c470.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c480.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c490.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c50.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c500.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c510.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c520.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c530.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c540.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c550.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c60.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c70.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c80.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c90.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/model/defend_the_center/checkpoint" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/model/defend_the_center/model-200.cptk.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/model/defend_the_center/model-200.cptk.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/model/defend_the_center/model-200.cptk.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/model/defend_the_center/model-400.cptk.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/model/defend_the_center/model-400.cptk.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/model/defend_the_center/model-400.cptk.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/summary/basic/train_0/events.out.tfevents.1554373520.DESKTOP-LGG5QHI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/summary/basic/train_1/events.out.tfevents.1554373519.DESKTOP-LGG5QHI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/summary/basic/train_2/events.out.tfevents.1554373525.DESKTOP-LGG5QHI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/summary/basic/train_3/events.out.tfevents.1554373525.DESKTOP-LGG5QHI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/summary/basic/train_4/events.out.tfevents.1554373515.DESKTOP-LGG5QHI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/summary/basic/train_5/events.out.tfevents.1554373517.DESKTOP-LGG5QHI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saves/summary/defend_the_center/train_0/events.out.tfevents.1556206273.CRYPT" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,27 +135,28 @@
         <counts>
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="50" />
+          <entry key="py" value="63" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="50" />
+          <entry key="Python" value="63" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="5448" />
+          <entry key="py" value="6395" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="5448" />
+          <entry key="Python" value="6395" />
         </counts>
       </usages-collector>
     </session>
@@ -50,22 +164,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/train.py">
+        <entry file="file://$PROJECT_DIR$/agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="123" column="72" selection-start-line="123" selection-start-column="72" selection-end-line="123" selection-end-column="72" />
+            <state relative-caret-position="-101">
+              <caret line="432" column="20" selection-start-line="432" selection-start-column="20" selection-end-line="432" selection-end-column="20" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gdoom_env.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_env.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
+            <state relative-caret-position="110">
+              <caret line="492" selection-start-line="492" selection-end-line="492" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -74,12 +188,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gdoom_utils.py">
+        <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-497">
-              <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+            <state relative-caret-position="-164">
+              <caret line="126" column="51" lean-forward="true" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#0#24#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,17 +202,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/network_params.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+            <state relative-caret-position="160">
+              <caret line="27" column="32" lean-forward="true" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agent.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_ac.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="14" column="69" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="69" />
+            <state relative-caret-position="82">
+              <caret line="92" column="32" lean-forward="true" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -109,8 +223,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gdoom_agent_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1648">
-              <caret line="83" column="2" selection-start-line="83" selection-start-column="2" selection-end-line="83" selection-end-column="2" />
+            <state relative-caret-position="-183">
+              <caret line="134" column="4" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="4" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -119,24 +233,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gdoom_agent.py">
+        <entry file="file://$PROJECT_DIR$/StackFrames/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="167" column="28" selection-start-line="167" selection-start-column="8" selection-end-line="167" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="160">
+              <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gdoom_ac.py">
+        <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
+            <state relative-caret-position="30">
+              <caret line="11" column="23" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="23" />
               <folding>
-                <element signature="e#0#23#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,12 +257,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>initialize_co</find>
-      <find>self</find>
-      <find>episode_</find>
-      <find>episode_frames.append(obs)</find>
-      <find>episode_frames.app</find>
-      <find>gif</find>
       <find>episode_frames</find>
       <find>episode_frames.append(</find>
       <find>lazyframe</find>
@@ -172,10 +277,16 @@
       <find>Periodically save gifs</find>
       <find>accumulated_reward</find>
       <find>self.model_path</find>
-      <find>deter</find>
       <find>load_</find>
       <find>after_ep_util_handle</find>
+      <find>GameVariable.HEALTH</find>
+      <find>deter</find>
+      <find>action_space</find>
+      <find>scenario</find>
       <find>model_path</find>
+      <find>local_AC.episode_buffer</find>
+      <find>state_size</find>
+      <find>s_size</find>
     </findStrings>
     <replaceStrings>
       <replace>agent</replace>
@@ -193,15 +304,20 @@
         <option value="$PROJECT_DIR$/utils/network_params.py" />
         <option value="$PROJECT_DIR$/gdoom_agent_utils.py" />
         <option value="$PROJECT_DIR$/gdoom_utils.py" />
-        <option value="$PROJECT_DIR$/gdoom_agent.py" />
         <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/gdoom_agent.py" />
         <option value="$PROJECT_DIR$/gdoom_env.py" />
+        <option value="$PROJECT_DIR$/StackFrames/gdoom_agent_utils.py" />
+        <option value="$PROJECT_DIR$/StackFrames/gdoom_utils.py" />
+        <option value="$PROJECT_DIR$/StackFrames/gdoom_env.py" />
+        <option value="$PROJECT_DIR$/StackFrames/gdoom_agent.py" />
+        <option value="$PROJECT_DIR$/StackFrames/gdoom_ac.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
+    <option name="x" value="34" />
+    <option name="y" value="-29" />
     <option name="width" value="1944" />
     <option name="height" value="1044" />
   </component>
@@ -210,6 +326,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -220,13 +337,17 @@
             <path>
               <item name="gdoom" type="b2602c69:ProjectViewProjectNode" />
               <item name="gdoom" type="462c0819:PsiDirectoryNode" />
+              <item name="StackFrames" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gdoom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gdoom" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -244,21 +365,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Doom" />
+  <component name="RunManager" selected="Python.train (1)">
+    <configuration name="train (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="gdoom" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/StackFrames" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
-      <option name="PARAMETERS" value="--actions single --scenario defend_the_center --freq_gif_save 10" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/StackFrames/train.py" />
+      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -266,8 +387,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="gdoom" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Panos\AppData\Local\Programs\Python\Python37\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
+      <option name="PARAMETERS" value="--actions all --scenario my_way_home --freq_gif_save 10" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.train" />
+      <item itemvalue="Python.train (1)" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.train (1)" />
         <item itemvalue="Python.train" />
       </list>
     </recent_temporary>
@@ -289,18 +436,18 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.65349543" visible="true" weight="0.25596184" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.65349543" visible="true" weight="0.19554849" />
       <window_info id="Structure" order="1" sideWeight="0.34650457" side_tool="true" weight="0.1263911" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.0569395" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36654803" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.27402136" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -357,13 +504,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="523">
           <caret line="89" column="51" selection-start-line="89" selection-start-column="33" selection-end-line="89" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../../../../../../Roaming/Python/Python37/site-packages/tensorflow/python/client/session.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="928" selection-start-line="928" selection-end-line="928" />
         </state>
       </provider>
     </entry>
@@ -449,46 +589,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/network_params.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gdoom_ac.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="14" column="69" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gdoom_agent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="167" column="28" selection-start-line="167" selection-start-column="8" selection-end-line="167" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
+        <state relative-caret-position="16">
           <caret line="123" column="72" selection-start-line="123" selection-start-column="72" selection-end-line="123" selection-end-column="72" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
@@ -498,30 +601,139 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gdoom_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-497">
-          <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+        <state relative-caret-position="160">
+          <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gdoom_agent_utils.py">
+    <entry file="file://$PROJECT_DIR$/gdoom_ac.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1648">
-          <caret line="83" column="2" selection-start-line="83" selection-start-column="2" selection-end-line="83" selection-end-column="2" />
+        <state relative-caret-position="345">
+          <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gdoom_agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gdoom_env.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
+        <state relative-caret-position="112">
+          <caret line="401" column="58" lean-forward="true" selection-start-line="401" selection-start-column="58" selection-end-line="401" selection-end-column="58" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_agent_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <marker date="1556358910431" expanded="true" signature="150:152" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-101">
+          <caret line="432" column="20" selection-start-line="432" selection-start-column="20" selection-end-line="432" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../../../../../Roaming/Python/Python37/site-packages/tensorflow/python/framework/op_def_library.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="787" selection-start-line="787" selection-end-line="787" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../../../../../Roaming/Python/Python37/site-packages/tensorflow/python/client/session.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="1333" selection-start-line="1333" selection-end-line="1333" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/network_params.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="27" column="32" lean-forward="true" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StackFrames/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_env.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="492" selection-start-line="492" selection-end-line="492" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gdoom_agent_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-183">
+          <caret line="134" column="4" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-164">
+          <caret line="126" column="51" lean-forward="true" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_ac.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="92" column="32" lean-forward="true" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>

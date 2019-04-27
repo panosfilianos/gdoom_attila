@@ -97,7 +97,7 @@ class GDoomEnv(gym.Env):
         self.game = vizdoom.DoomGame()
         self.accumulated_reward = 0
 
-        self.actions = gdoom_utils.button_combinations()
+        self.actions = gdoom_utils.button_combinations(scenario=params.scenario)
         self.agent = gdoom_agent.Agent(actions = self.actions,
                                        s_size = state_size,
                                        a_size = action_size,
@@ -108,9 +108,6 @@ class GDoomEnv(gym.Env):
         #from A3C name of level to GDoom settings index
         self.level = name_to_settings_index_dict[level]
         self.reset() # load buttons, etc.
-
-        #Add agents related to the environment
-        self.ag = Worker(i, state_size, action_size, trainer, model_path)
 
 
 
@@ -200,11 +197,15 @@ class GDoomEnv(gym.Env):
         assert(isinstance(action_index, int))
         if action_index >= 0:
             #one hot encoding
-            a_t = np.zeros([self.action_space.n])
-            a_t[action_index] = 1
-            a_t = a_t.astype(int)
+            # a_t = np.zeros([self.action_space.n])
+            # a_t[action_index] = 1
+            # a_t = a_t.astype(int)
+            # # get reward from executing action
+            # reward = self.agent.get_custom_reward(self, self.game.make_action(a_t.tolist()))
+
+            a_t = self.actions[action_index]
             # get reward from executing action
-            reward = self.agent.get_custom_reward(self, self.game.make_action(a_t.tolist()))
+            reward = self.agent.get_custom_reward(self, self.game.make_action(a_t))
         elif action_index == -1:
             # get reward from executing action
             reward = self.agent.get_custom_reward(self, self.game.make_action(  np.zeros([self.action_space.n]).tolist()   ))##this and following if are equal..no sense to differentiate the mode

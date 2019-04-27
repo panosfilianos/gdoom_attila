@@ -59,6 +59,9 @@ class Agent():
         --------------
         game_reward : float, reward provided by the environment
         """
+        env.agent.last_total_health = env.game.get_game_variable(GameVariable.HEALTH)
+        env.agent.last_total_ammo2 = env.game.get_game_variable(GameVariable.AMMO2)
+        env.agent.last_total_kills = env.game.get_game_variable(GameVariable.KILLCOUNT)
         return game_reward
 
         if params.scenario == 'basic':
