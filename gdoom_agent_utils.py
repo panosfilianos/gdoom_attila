@@ -16,8 +16,28 @@ def print_end_episode_perfs(agent):
     Print episode statistics depending on the scenario.
 
     """
+    print(agent.v_l_array)
+    try:
+        avg_v_loss = sum(agent.v_l_array) / len(agent.v_l_array)
+    except:
+        avg_v_loss = "nan"
+    try:
+        avg_p_loss = sum(agent.p_l_array) / len(agent.p_l_array)
+    except:
+        avg_p_loss = "nan"
+    try:
+        avg_e_loss = sum(agent.e_l_array) / len(agent.e_l_array)
+    except:
+        avg_e_loss = "nan"
+    print('{}|{}|{}|{}|{}|{}|{}|{}'.format(agent.episode_count, agent.last_total_kills,
+                                           agent.episode_step_count, agent.episode_reward,
+                                           agent.last_total_ammo2, avg_v_loss, avg_p_loss, avg_e_loss))
+    return
 
     if params.scenario == 'basic':
+        print('{}|{}|{}|{}|{}|{}|{}|{}'.format(agent.episode_count, agent.episode_kills,
+                                         agent.episode_step_count, agent.episode_reward,
+                                         agent.episode_ammo, avg_v_loss, avg_p_loss, avg_e_loss))
         print(
             '{}, episode #{}, ep_reward: {}, ep_curiosity: {}, av_reward:{}, av_curiosity:{}, steps:{}, time costs:{}'.format(
                 agent.name, agent.episode_count, agent.episode_reward, agent.episode_curiosity,
@@ -60,7 +80,8 @@ def get_health_reward(env):
     if d_health == 0:
         return 0
     elif d_health < 0:
-        return -5
+        return -d_health
+        # return -5
 
 def get_ammo_reward(env):
     """

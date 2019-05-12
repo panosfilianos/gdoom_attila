@@ -29,7 +29,11 @@ def process_frame(frame, crop, resize):
 
     # we are using a lazyframes FrameStack but taking frame 0 (out of 3 total frames)
     # as seen below
-    s = frame[y2:y1, x1:x2, 0]
+    # print(type(frame))
+    # print(frame.shape)
+    # a lot of dimensions for RGB - change
+    # s = frame[y2:y1, x1:x2, 0]
+    s = frame[y2:y1, x1:x2]
     # this way the output is of size resize[0] * resize[1] = height * width after resizing which is
     # the case for the NNs input also, if we want to stack frames, we might as well but we have to change
     # the NNs input likewise
@@ -93,6 +97,7 @@ def button_combinations(scenario='basic'):
     actions : list, the one-hot encoded possible actions.
     """
     actions = []
+    # [move left, move right, shoot, move forward, move backwards, turn left, turn right]
 
     m_left_right = [[True, False], [False, True], [False, False]]  # move left and move right
     attack = [[True], [False]]
@@ -100,11 +105,12 @@ def button_combinations(scenario='basic'):
     t_left_right = [[True, False], [False, True], [False, False]]  # turn left and turn right
 
     if scenario == 'deadly_corridor':
-        actions = np.identity(6, dtype=int).tolist()
-        actions.extend([[0, 0, 1, 0, 1, 0],
-                        [0, 0, 1, 0, 0, 1],
-                        [1, 0, 1, 0, 0, 0],
-                        [0, 1, 1, 0, 0, 0]])
+        actions = np.identity(7, dtype=int).tolist()
+        # [move left, move right, shoot, move forward, turn left, turn right]
+        actions.extend([[0, 0, 1, 0, 0, 1, 0], #shoot, turn left
+                        [0, 0, 1, 0, 0, 0, 1], #shoot, turn right
+                        [1, 0, 1, 0, 0, 0, 0], #move left, shoot
+                        [0, 1, 1, 0, 0, 0, 0]]) #move right, shoot
 
     if scenario == 'basic':
         for i in m_left_right:

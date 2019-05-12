@@ -105,12 +105,15 @@ def train_agents():
         else:
             num_workers = params.num_workers
 
+        print('num_workers: {}'.format(num_workers))
+
         num_workers = 1
         
         # Create worker classes
         envs = []
         for i in range(num_workers):
             #Adam is an optimization algorithm that can used instead of the classical stochastic gradient descent procedure to update network weights iterative based in training data.ol
+            # trainer = tf.train.AdamOptimizer(learning_rate=params.lr)  #paramaters like learning rate: epsilon, gamma and so on
             trainer = tf.train.AdamOptimizer(learning_rate=params.lr)  #paramaters like learning rate: epsilon, gamma and so on
 
 

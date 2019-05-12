@@ -59,16 +59,22 @@ class Agent():
         --------------
         game_reward : float, reward provided by the environment
         """
-        env.agent.last_total_health = env.game.get_game_variable(GameVariable.HEALTH)
-        env.agent.last_total_ammo2 = env.game.get_game_variable(GameVariable.AMMO2)
-        env.agent.last_total_kills = env.game.get_game_variable(GameVariable.KILLCOUNT)
-        return game_reward
+        # env.agent.last_total_health = env.game.get_game_variable(GameVariable.HEALTH)
+        # env.agent.last_total_ammo2 = env.game.get_game_variable(GameVariable.AMMO2)
+        # env.agent.last_total_kills = env.game.get_game_variable(GameVariable.KILLCOUNT)
+        # return game_reward
 
         if params.scenario == 'basic':
             return game_reward / 100.0
 
         if params.scenario == 'defend_the_center':
             # self.last_total_kills = env.game.get_game_variable(GameVariable.KILLCOUNT)
+            kill_reward = gdoom_agent_utils.get_kill_reward(env=env)/10.0
+            if (kill_reward != 0):
+                return game_reward + kill_reward + env.agent.episode_step_count/1000.0
+            else:
+                return game_reward-  gdoom_agent_utils.get_ammo_reward(env=env)**2
+            return game_reward -  gdoom_agent_utils.get_ammo_reward(env=env)**2 + gdoom_agent_utils.get_kill_reward(env=env)/10.0+ env.agent.episode_step_count/1000.0
             return game_reward + gdoom_agent_utils.get_kill_reward(env=env) #+ gdoom_agent_utils.get_ammo_reward(env=env) / 10
 
         if params.scenario == 'deadly_corridor':
@@ -98,6 +104,10 @@ class Agent():
                 #     self.v_l, self.p_l, self.e_l, self.Inv_l, self.Forward_l, self.g_n, self.v_n = Losses_grads
                 # else:
                 self.v_l, self.p_l, self.e_l, self.g_n, self.v_n = Losses_grads
+
+                self.v_l_array.append(self.v_l)
+                self.p_l_array.append(self.p_l)
+                self.e_l_array.append(self.e_l)
 
                 # Empty buffer
                 self.local_AC.episode_buffer = []
