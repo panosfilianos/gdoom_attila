@@ -79,6 +79,8 @@ class AC_Network():
                 self.old_policy = tf.placeholder(shape=[None], dtype=tf.float32)
                 self.responsible_outputs = tf.reduce_sum(self.policy * self.actions_onehot, [1])
 
+                epsilon_non_nan = 0.00001
+
                 if params.use_ppo:
                     ratio = self.responsible_outputs / self.old_policy
                     epsilon = 0.2
@@ -87,11 +89,11 @@ class AC_Network():
                     policy_loss_ = tf.minimum(surr1, surr2)
 
                 else:
-                    policy_loss_ = tf.log(self.responsible_outputs) * self.advantages
+                    policy_loss_ = tf.log(self.responsible_outputs + epsilon_non_nan) * self.advantages
 
                 # Loss functions
                 self.value_loss = 0.5 * tf.reduce_sum(tf.square(self.target_v - tf.reshape(self.value, [-1])))
-                self.entropy = - tf.reduce_sum(self.policy * tf.log(self.policy))
+                self.entropy = - tf.reduce_sum(self.policy * tf.log(self.policy + epsilon_non_nan))
                 self.policy_loss = -tf.reduce_sum(policy_loss_)
                 self.loss = 0.5 * self.value_loss + self.policy_loss - self.entropy * 0.01
 

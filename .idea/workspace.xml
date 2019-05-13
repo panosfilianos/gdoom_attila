@@ -3,94 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b323e6f4-0fcc-48af-8b3b-dab71c24921d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/_vizdoom.ini" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/_vizdoom.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/gdoom_ac.py" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/gdoom_ac.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/gdoom_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/gdoom_agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/gdoom_env.py" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/gdoom_env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c100.gif" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c100.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c125.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c150.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c175.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c200.gif" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c200.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c225.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c25.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c250.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c275.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c300.gif" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c300.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c325.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c350.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c375.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c400.gif" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c400.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c425.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c450.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c475.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c50.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c500.gif" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c500.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c525.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c550.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/deadly_corridor/gyma3c75.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c100.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c125.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c150.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c175.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c200.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c225.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c25.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c250.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c275.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c300.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c325.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c350.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c375.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c400.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c425.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c450.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c475.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c50.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c500.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c525.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c550.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c575.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/frames/defend_the_center/gyma3c75.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/model/deadly_corridor/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/saves/model/deadly_corridor/checkpoint" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/model/deadly_corridor/model-200.cptk.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/saves/model/deadly_corridor/model-200.cptk.data-00000-of-00001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/model/deadly_corridor/model-200.cptk.index" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/saves/model/deadly_corridor/model-200.cptk.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/model/deadly_corridor/model-200.cptk.meta" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/saves/model/deadly_corridor/model-200.cptk.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/model/deadly_corridor/model-400.cptk.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/saves/model/deadly_corridor/model-400.cptk.data-00000-of-00001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/model/deadly_corridor/model-400.cptk.index" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/saves/model/deadly_corridor/model-400.cptk.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/model/deadly_corridor/model-400.cptk.meta" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/saves/model/deadly_corridor/model-400.cptk.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/summary/deadly_corridor/train_0/events.out.tfevents.1556385307.CRYPT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/summary/deadly_corridor/train_1/events.out.tfevents.1556385306.CRYPT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/saves/summary/deadly_corridor/train_2/events.out.tfevents.1556385310.CRYPT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackFrames/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/StackFrames/train.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_vizdoom.ini" beforeDir="false" afterPath="$PROJECT_DIR$/_vizdoom.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gdoom_ac.py" beforeDir="false" afterPath="$PROJECT_DIR$/gdoom_ac.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gdoom_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/gdoom_agent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gdoom_agent_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/gdoom_agent_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gdoom_env.py" beforeDir="false" afterPath="$PROJECT_DIR$/gdoom_env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gdoom_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/gdoom_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/frames/basic/gyma3c10.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/frames/basic/gyma3c20.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/frames/basic/gyma3c30.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/frames/basic/gyma3c40.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/frames/basic/gyma3c50.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/frames/basic/gyma3c60.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/frames/basic/gyma3c70.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/frames/basic/gyma3c80.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/frames/basic/gyma3c90.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c10.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_center/gyma3c20.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_line/gyma3c10.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_line/gyma3c20.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_line/gyma3c30.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/frames/defend_the_line/gyma3c40.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/model/deadly_corridor/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/saves/model/deadly_corridor/checkpoint" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/model/deadly_corridor/model-200.cptk.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/model/deadly_corridor/model-200.cptk.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/model/deadly_corridor/model-200.cptk.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/summary/basic/train_0/events.out.tfevents.1556214472.CRYPT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/summary/deadly_corridor/train_0/events.out.tfevents.1556214839.CRYPT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saves/summary/defend_the_center/train_0/events.out.tfevents.1556214537.CRYPT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,32 +19,32 @@
     <session id="-1926955645">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.5" value="2" />
+          <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="4" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="160" />
+          <entry key="py" value="185" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="160" />
+          <entry key="Python" value="185" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="9065" />
+          <entry key="py" value="9435" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="9065" />
+          <entry key="Python" value="9435" />
         </counts>
       </usages-collector>
     </session>
@@ -135,40 +52,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gdoom_agent.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="38" column="12" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/agent.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="481" column="27" lean-forward="true" selection-start-line="481" selection-start-column="27" selection-end-line="481" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gdoom_agent_utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="45" column="48" lean-forward="true" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gdoom_env.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="397" column="31" lean-forward="true" selection-start-line="397" selection-start-column="31" selection-end-line="397" selection-end-column="31" />
+            <state relative-caret-position="190">
+              <caret line="312" column="27" lean-forward="true" selection-start-line="312" selection-start-column="27" selection-end-line="312" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -176,50 +63,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gdoom_ac.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="92" column="77" selection-start-line="92" selection-start-column="69" selection-end-line="92" selection-end-column="77" />
+            <state relative-caret-position="96">
+              <caret line="12" column="19" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/train.py">
+        <entry file="file://$PROJECT_DIR$/agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-60">
-              <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+            <state relative-caret-position="272">
+              <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gdoom_utils.py">
+        <entry file="file://$PROJECT_DIR$/utils/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="102" column="30" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
+            <state relative-caret-position="384">
+              <caret line="45" column="4" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/Vitto/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/agent.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3936">
-              <caret line="255" column="58" selection-start-line="255" selection-start-column="58" selection-end-line="255" selection-end-column="58" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/Vitto/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/utils/networks.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -228,14 +94,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>self.batch_rnn_state</find>
-      <find>s_size</find>
-      <find>self.target_v</find>
-      <find>self.old_policy</find>
-      <find>target_v</find>
-      <find>steps</find>
-      <find>self.advantages</find>
-      <find>self.value</find>
       <find>print_end_episode_perfs</find>
       <find>rnn_out</find>
       <find>state_size</find>
@@ -254,10 +112,18 @@
       <find>screen_height</find>
       <find>collect_variables</find>
       <find>action_space</find>
-      <find>visible</find>
-      <find>visi</find>
       <find>self.game.set_window_visible</find>
+      <find>print(self.</find>
+      <find>print</find>
       <find>with</find>
+      <find>self.v_l</find>
+      <find>set_window_visible</find>
+      <find>rewa</find>
+      <find>o re</find>
+      <find>envs.</find>
+      <find>visi</find>
+      <find>log</find>
+      <find>visible</find>
     </findStrings>
     <replaceStrings>
       <replace>agent</replace>
@@ -270,7 +136,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/utils/utils.py" />
-        <option value="$PROJECT_DIR$/gdoom_ac.py" />
         <option value="$PROJECT_DIR$/agent.py" />
         <option value="$PROJECT_DIR$/utils/network_params.py" />
         <option value="$PROJECT_DIR$/StackFrames/gdoom_utils.py" />
@@ -283,19 +148,28 @@
         <option value="$USER_HOME$/Desktop/DTU/Sem2/AML/final/Vitto/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/utils/utils.py" />
         <option value="$USER_HOME$/Desktop/DTU/Sem2/AML/final/Vitto/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/utils/networks.py" />
         <option value="$PROJECT_DIR$/gdoom_utils.py" />
-        <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/StackFrames/gdoom_env.py" />
-        <option value="$PROJECT_DIR$/gdoom_agent_utils.py" />
-        <option value="$PROJECT_DIR$/gdoom_env.py" />
         <option value="$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/agent.py" />
+        <option value="$PROJECT_DIR$/gdoom_agent_utils.py" />
+        <option value="$USER_HOME$/Desktop/DTU/Sem2/AML/final/gcp/3dqn/__init__.py" />
+        <option value="$USER_HOME$/Desktop/DTU/Sem2/AML/final/gcp/3dqn/wrappers/gdoom_wrappers.py" />
+        <option value="$USER_HOME$/Desktop/DTU/Sem2/AML/final/gcp/3dqn/gdoom_env.py" />
+        <option value="$USER_HOME$/Desktop/DTU/Sem2/AML/final/gcp/dddqn_dtc/gdoom_env.py" />
+        <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/gdoom_ac.py" />
         <option value="$PROJECT_DIR$/gdoom_agent.py" />
+        <option value="$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/utils/utils.py" />
+        <option value="$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/clean/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/utils/utils.py" />
+        <option value="$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/clean/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/agent.py" />
+        <option value="$PROJECT_DIR$/gdoom_env.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="width" value="1310" />
-    <option name="height" value="1031" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
+    <option name="width" value="1944" />
+    <option name="height" value="1044" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -371,7 +245,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
-      <option name="PARAMETERS" value="--scenario defend_the_center --freq_gif_save 100  --max_episodes 6000 --lr 0.0001 --freq_model_save 400" />
+      <option name="PARAMETERS" value="--scenario basic --freq_gif_save 100  --max_episodes 6000 --lr 0.0001 --freq_model_save 400" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -404,126 +278,51 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-8" y="-8" width="1296" height="696" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6405694" visible="true" weight="0.16136725" />
-      <window_info id="Structure" order="1" sideWeight="0.3594306" side_tool="true" visible="true" weight="0.16136725" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.63981044" visible="true" weight="0.2533757" />
+      <window_info id="Structure" order="1" sideWeight="0.3601896" side_tool="true" weight="0.2366958" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.102888085" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.37833038" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3291815" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.2725632" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3291815" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.27175844" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3285968" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.63981044" visible="true" weight="0.2366958" />
+      <window_info id="Structure" order="1" sideWeight="0.3601896" side_tool="true" visible="true" weight="0.2366958" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25044405" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3291815" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.27175844" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3285968" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../utils/reraise.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Example/A3CDoom.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="266" column="16" selection-start-line="266" selection-start-column="16" selection-end-line="266" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/play.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" selection-start-column="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/networks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="62" column="84" selection-start-line="62" selection-start-column="84" selection-end-line="62" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../../../../../../Roaming/Python/Python37/site-packages/tensorflow/python/ops/variable_scope.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="2203" selection-start-line="2203" selection-end-line="2203" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../utils/play.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="89" column="51" selection-start-line="89" selection-start-column="33" selection-end-line="89" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../PIL/Image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="2525" column="6" selection-start-line="2525" selection-start-column="6" selection-end-line="2525" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../spaces/box.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-251">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../scipy/misc/pilutil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="326" selection-start-line="326" selection-end-line="326" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../threading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="864" selection-start-line="864" selection-end-line="864" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/args.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/baselines/baselines/common/atari_wrappers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="177" selection-start-line="177" selection-end-line="177" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../core.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -564,13 +363,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2236">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_utils.py" />
     <entry file="file://$PROJECT_DIR$/utils/network_params.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -578,27 +371,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1195">
-          <caret line="432" column="20" selection-start-line="432" selection-start-column="20" selection-end-line="432" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StackFrames/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1329">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_agent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="97" column="37" selection-start-line="97" selection-start-column="37" selection-end-line="97" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/StackFrames/train.py" />
+    <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_agent.py" />
     <entry file="file://$PROJECT_DIR$/wrappers/gdoom_wrappers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -606,13 +380,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_ac.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="38" column="64" selection-start-line="38" selection-start-column="58" selection-end-line="38" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_ac.py" />
     <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/Vitto/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/utils/launch_experiments.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -656,20 +424,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_agent_utils.py">
+    <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_agent_utils.py" />
+    <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_env.py" />
+    <entry file="file://$PROJECT_DIR$/gdoom_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="24" column="63" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="63" />
+        <state relative-caret-position="144">
+          <caret line="102" column="30" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/Vitto/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/agent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3936">
+        <state relative-caret-position="482">
           <caret line="255" column="58" selection-start-line="255" selection-start-column="58" selection-end-line="255" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -680,65 +447,155 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StackFrames/gdoom_env.py">
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/gcp/3dqn_dtc/gdoom_env.py" />
+    <entry file="file://$PROJECT_DIR$/../StackFrames/gdoom_agent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="402" column="28" selection-start-line="402" selection-start-column="28" selection-end-line="402" selection-end-column="28" />
+        <state relative-caret-position="307">
+          <caret line="112" column="16" lean-forward="true" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/gcp/3dqn/gdoom_env.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+        <state relative-caret-position="71">
+          <caret line="665" column="32" lean-forward="true" selection-start-line="665" selection-start-column="32" selection-end-line="665" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gdoom_utils.py">
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/gcp/3dqn/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="102" column="30" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="304">
+          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gdoom_ac.py">
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/gcp/3dqn/wrappers/gdoom_wrappers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="92" column="77" selection-start-line="92" selection-start-column="69" selection-end-line="92" selection-end-column="77" />
+        <state relative-caret-position="208">
+          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/agent.py">
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/gcp/dddqn_dtc/gdoom_env.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="481" column="27" lean-forward="true" selection-start-line="481" selection-start-column="27" selection-end-line="481" selection-end-column="27" />
+        <state relative-caret-position="183">
+          <caret line="666" lean-forward="true" selection-start-line="666" selection-end-line="666" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gdoom_agent_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="45" column="48" lean-forward="true" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gdoom_env.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="397" column="31" lean-forward="true" selection-start-line="397" selection-start-column="31" selection-end-line="397" selection-end-column="31" />
+        <state relative-caret-position="304">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gdoom_agent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="38" column="12" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="12" />
+        <state relative-caret-position="651">
+          <caret line="108" column="46" selection-start-line="108" selection-start-column="46" selection-end-line="108" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="109" column="23" selection-start-line="109" selection-start-column="23" selection-end-line="109" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="443" column="41" selection-start-line="443" selection-start-column="27" selection-end-line="443" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/play.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/main.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/utils/launch_experiments.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/utils/args.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/utils/networks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/utils/network_params.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/utils/launch_tensorboard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/clean/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/utils/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/utils/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/DTU/Sem2/AML/final/OtherWorks/clean/Deep-Reinforcement-Learning-applied-to-DOOM-master/A3C_Curiosity/agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="176" column="49" selection-start-line="176" selection-start-column="49" selection-end-line="176" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gdoom_ac.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="12" column="19" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="45" column="4" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gdoom_env.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="312" column="27" lean-forward="true" selection-start-line="312" selection-start-column="27" selection-end-line="312" selection-end-column="27" />
         </state>
       </provider>
     </entry>

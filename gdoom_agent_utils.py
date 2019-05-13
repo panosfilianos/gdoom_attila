@@ -16,7 +16,6 @@ def print_end_episode_perfs(agent):
     Print episode statistics depending on the scenario.
 
     """
-    print(agent.v_l_array)
     try:
         avg_v_loss = sum(agent.v_l_array) / len(agent.v_l_array)
     except:

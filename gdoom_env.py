@@ -396,84 +396,85 @@ def train(env, max_episodes, gamma, sess, coord, saver, transpose=True, fps=30, 
     clock = pygame.time.Clock()
 
     env.agent.episode_count = 0
+    with sess.as_default(), sess.graph.as_default():
 
+        # while running:
+        while (not coord.should_stop()) and (env.agent.episode_count < max_episodes):
 
-    # while running:
-    while (not coord.should_stop()) and (env.agent.episode_count < max_episodes):
+            rnn_state = gdoom_utils.setup_network(sess, env.agent)
+            #reset the frames to gif every episode
+            ep_done = False
+            obs = env.reset()
 
-        rnn_state = gdoom_utils.setup_network(sess, env.agent)
-        #reset the frames to gif every episode
-        ep_done = False
-        obs = env.reset()
+            #reset loss arrays (do it here, because we need to initialize it first time and make sure it's not empty printed)
+            env.agent.v_l_array = []
+            env.agent.p_l_array = []
+            env.agent.e_l_array = []
+            env.agent.t_l_array = []
 
-        #reset loss arrays (do it here, because we need to initialize it first time and make sure it's not empty printed)
-        env.agent.v_l_array = []
-        env.agent.p_l_array = []
-        env.agent.e_l_array = []
-
-        env.agent.episode_frames.append(obs)
-        obs = gdoom_utils.process_frame(obs, crop, resize)
-
-
-        while(not(ep_done)):
-
-            # if env_done:
-            #     env_done = False
-            #     obs = env.reset()
-            #     env.agent.episode_frames.append(obs)
-            #     obs = gdoom_utils.process_frame(obs, crop, resize)
-            # else:
-            # THIS IS WHERE IT GETS ITS ACTIONS
-            # THE ACTION ITSELF IS THE VALUE OF THE DICT:
-            # print(keys_to_action.get(tuple(sorted(pressed_keys)), 0))
-            # THE DICT HAS KEY AS ASCII VALUE OF THE BUTTON TO PRESS AND VALUE AS THE VALUE GIVEN TO IT BY THE ENV
-
-            a_dist, v, rnn_state, action_index = env.agent.get_policy_action(sess=sess,
-                                                                            obs=obs,
-                                                                            rnn_state=rnn_state)#keys_to_action.get(tuple(sorted(pressed_keys)), 1)
-            # added here because if you scroll those events in the pygame loop are registered only after human input
-            # pressed_keys.append(action)
-
-
-
-            prev_obs = obs
-            obs, rew, ep_done, info = env.step(action_index)
-
+            env.agent.episode_frames.append(obs)
             obs = gdoom_utils.process_frame(obs, crop, resize)
 
-            if callback is not None:
-                #train the network here
 
-                if (callback(env=env,
-                             prev_obs=prev_obs,
-                             obs=obs,
-                             action=action_index,
-                             reward=rew,
-                             ep_done=ep_done,
-                             v=v,
-                             sess=sess,
-                             max_episodes=max_episodes,
-                             gamma=gamma,
-                             rnn_state=rnn_state)):
-                    break
+            while(not(ep_done)):
 
-        env.agent.after_ep_util_handle(sess=sess,
-                                       gamma=gamma,
-                                       saver=saver,
-                                       model_path =env.model_path)
+                # if env_done:
+                #     env_done = False
+                #     obs = env.reset()
+                #     env.agent.episode_frames.append(obs)
+                #     obs = gdoom_utils.process_frame(obs, crop, resize)
+                # else:
+                # THIS IS WHERE IT GETS ITS ACTIONS
+                # THE ACTION ITSELF IS THE VALUE OF THE DICT:
+                # print(keys_to_action.get(tuple(sorted(pressed_keys)), 0))
+                # THE DICT HAS KEY AS ASCII VALUE OF THE BUTTON TO PRESS AND VALUE AS THE VALUE GIVEN TO IT BY THE ENV
 
-        total_frames += env.agent.episode_step_count
-        # print("Total frames: {}".format(total_frames))
+                a_dist, v, rnn_state, action_index = env.agent.get_policy_action(sess=sess,
+                                                                                obs=obs,
+                                                                                rnn_state=rnn_state)#keys_to_action.get(tuple(sorted(pressed_keys)), 1)
+                # added here because if you scroll those events in the pygame loop are registered only after human input
+                # pressed_keys.append(action)
 
-        # reset all episode stats
 
-        env.agent.episode_values = []
-        env.agent.episode_reward = 0
-        env.agent.episode_step_count = 0
 
-        # pygame.display.flip()
-        clock.tick(fps)
-    pygame.quit()
+                prev_obs = obs
+                obs, rew, ep_done, info = env.step(action_index)
+
+                obs = gdoom_utils.process_frame(obs, crop, resize)
+
+                if callback is not None:
+                    #train the network here
+
+                    if (callback(env=env,
+                                 prev_obs=prev_obs,
+                                 obs=obs,
+                                 action=action_index,
+                                 reward=rew,
+                                 ep_done=ep_done,
+                                 v=v,
+                                 sess=sess,
+                                 max_episodes=max_episodes,
+                                 gamma=gamma,
+                                 rnn_state=rnn_state)):
+                        break
+
+            env.agent.after_ep_util_handle(sess=sess,
+                                           gamma=gamma,
+                                           saver=saver,
+                                           model_path =env.model_path)
+
+            total_frames += env.agent.episode_step_count
+            # print("Total frames: {}".format(total_frames))
+
+            # reset all episode stats
+
+            env.agent.episode_values = []
+            env.agent.episode_reward = 0
+            env.agent.episode_step_count = 0
+
+            # pygame.display.flip()
+            clock.tick(fps)
+        pygame.quit()
 
 
 def after_step_callback(env, prev_obs, obs, action, reward, ep_done, v, sess, max_episodes, gamma, rnn_state):
@@ -485,17 +486,17 @@ def after_step_callback(env, prev_obs, obs, action, reward, ep_done, v, sess, ma
     env.agent.episode_reward += reward
     env.agent.episode_step_count += 1
 
-    try:
+    # try:
         # try to see if current agent has an option to retrain the network after K steps
-        env.agent.retrain_handle(sess=sess,
-                             s=obs,
-                             ep_done=ep_done,
-                             max_episodes=max_episodes,
-                             gamma=gamma,
-                             rnn_state=rnn_state)
-    except:
-        print("No retrain handle")
-        pass
+    env.agent.retrain_handle(sess=sess,
+                         s=obs,
+                         ep_done=ep_done,
+                         max_episodes=max_episodes,
+                         gamma=gamma,
+                         rnn_state=rnn_state)
+    # except:
+    #     print("No retrain handle")
+    #     pass
 
     if ep_done == True:
         # Print perfs of episode

@@ -36,7 +36,7 @@ class Agent():
         self.last_total_kills = 0
 
     def get_policy_action(self, sess, obs, rnn_state):
-        with sess.as_default(), sess.graph.as_default():
+        # with sess.as_default(), sess.graph.as_default():
             # Take an action using probabilities from policy network output.
             a_dist, v, rnn_state = sess.run([self.local_AC.policy, self.local_AC.value, self.local_AC.state_out],
                                             feed_dict={self.local_AC.inputs: [obs],
@@ -65,15 +65,20 @@ class Agent():
         # return game_reward
 
         if params.scenario == 'basic':
+            gdoom_agent_utils.get_kill_reward(env=env)
+            gdoom_agent_utils.get_ammo_reward(env=env)
             return game_reward / 100.0
 
         if params.scenario == 'defend_the_center':
             # self.last_total_kills = env.game.get_game_variable(GameVariable.KILLCOUNT)
+
+
             kill_reward = gdoom_agent_utils.get_kill_reward(env=env)/10.0
             if (kill_reward != 0):
-                return game_reward + kill_reward + env.agent.episode_step_count/1000.0
+                gdoom_agent_utils.get_ammo_reward(env=env)
+                return (game_reward + kill_reward + env.agent.episode_step_count/1000.0)/1000.0
             else:
-                return game_reward-  gdoom_agent_utils.get_ammo_reward(env=env)**2
+                return (game_reward-  gdoom_agent_utils.get_ammo_reward(env=env)**2)/1000.0
             return game_reward -  gdoom_agent_utils.get_ammo_reward(env=env)**2 + gdoom_agent_utils.get_kill_reward(env=env)/10.0+ env.agent.episode_step_count/1000.0
             return game_reward + gdoom_agent_utils.get_kill_reward(env=env) #+ gdoom_agent_utils.get_ammo_reward(env=env) / 10
 
@@ -87,27 +92,28 @@ class Agent():
             return game_reward
 
     def retrain_handle(self, sess, s, ep_done, max_episodes, gamma, rnn_state):
-        with sess.as_default(), sess.graph.as_default():
+        # with sess.as_default(), sess.graph.as_default():
             if (len(self.local_AC.episode_buffer) == params.n_steps and
                 ep_done != True and
                 self.episode_step_count != max_episodes - 1):
-                # print("RETRAINING WEIGHTS ON THE NETWORK")
                 # Since we don't know what the true final return is, we "bootstrap" from our current value estimation.
                 v1 = sess.run(self.local_AC.value,
                               feed_dict={self.local_AC.inputs: [s],
                                          self.local_AC.state_in[0]: rnn_state[0],
                                          self.local_AC.state_in[1]: rnn_state[1]})[0, 0]
 
+
                 Losses_grads = self.retrain_weights(self.local_AC.episode_buffer, sess, gamma, v1)
 
                 # if params.use_curiosity:
                 #     self.v_l, self.p_l, self.e_l, self.Inv_l, self.Forward_l, self.g_n, self.v_n = Losses_grads
                 # else:
-                self.v_l, self.p_l, self.e_l, self.g_n, self.v_n = Losses_grads
+                self.t_l, self.v_l, self.p_l, self.e_l, self.g_n, self.v_n = Losses_grads
 
                 self.v_l_array.append(self.v_l)
                 self.p_l_array.append(self.p_l)
                 self.e_l_array.append(self.e_l)
+                self.t_l_array.append(self.t_l)
 
                 # Empty buffer
                 self.local_AC.episode_buffer = []
@@ -151,7 +157,8 @@ class Agent():
             old_policy = sess.run([self.local_AC.responsible_outputs],feed_dict=feed_dict)
             feed_dict.update({self.local_AC.old_policy:old_policy[0]})
 
-        self.v_l,self.p_l,self.e_l,self.g_n,self.v_n, self.batch_rnn_state,_ = sess.run([self.local_AC.value_loss,
+        self.t_l, self.v_l,self.p_l,self.e_l,self.g_n,self.v_n, self.batch_rnn_state,_ = sess.run([self.local_AC.loss,
+                                                                                         self.local_AC.value_loss,
                                                                                          self.local_AC.policy_loss,
                                                                                          self.local_AC.entropy,
                                                                                          self.local_AC.grad_norms,
@@ -160,7 +167,7 @@ class Agent():
                                                                                          self.local_AC.apply_grads],
                                                                                         feed_dict=feed_dict)
 
-        Losses = [self.v_l, self.p_l, self.e_l]
+        Losses = [self.t_l, self.v_l, self.p_l, self.e_l]
         Grad_vars = [self.g_n, self.v_n]
 
         # Update the local ICM network using gradients from loss
@@ -190,7 +197,7 @@ class Agent():
                                                                                                           gamma,
                                                                                                           0.0)
             else:
-                self.v_l, self.p_l, self.e_l, self.g_n, self.v_n = self.retrain_weights(self.local_AC.episode_buffer,
+                self.t_l, self.v_l, self.p_l, self.e_l, self.g_n, self.v_n = self.retrain_weights(self.local_AC.episode_buffer,
                                                                               sess,
                                                                               gamma,
                                                                               0.0)
