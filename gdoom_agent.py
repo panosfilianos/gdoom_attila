@@ -36,7 +36,7 @@ class Agent():
         self.last_total_kills = 0
 
     def get_policy_action(self, sess, obs, rnn_state):
-        # with sess.as_default(), sess.graph.as_default():
+        with sess.as_default(), sess.graph.as_default():
             # Take an action using probabilities from policy network output.
             a_dist, v, rnn_state = sess.run([self.local_AC.policy, self.local_AC.value, self.local_AC.state_out],
                                             feed_dict={self.local_AC.inputs: [obs],
@@ -59,28 +59,14 @@ class Agent():
         --------------
         game_reward : float, reward provided by the environment
         """
-        # env.agent.last_total_health = env.game.get_game_variable(GameVariable.HEALTH)
-        # env.agent.last_total_ammo2 = env.game.get_game_variable(GameVariable.AMMO2)
-        # env.agent.last_total_kills = env.game.get_game_variable(GameVariable.KILLCOUNT)
-        # return game_reward
-
         if params.scenario == 'basic':
             gdoom_agent_utils.get_kill_reward(env=env)
             gdoom_agent_utils.get_ammo_reward(env=env)
             return game_reward / 100.0
 
         if params.scenario == 'defend_the_center':
-            # self.last_total_kills = env.game.get_game_variable(GameVariable.KILLCOUNT)
-
-
-            kill_reward = gdoom_agent_utils.get_kill_reward(env=env)/10.0
-            if (kill_reward != 0):
-                gdoom_agent_utils.get_ammo_reward(env=env)
-                return (game_reward + kill_reward + env.agent.episode_step_count/1000.0)/1000.0
-            else:
-                return (game_reward-  gdoom_agent_utils.get_ammo_reward(env=env)**2)/1000.0
-            return game_reward -  gdoom_agent_utils.get_ammo_reward(env=env)**2 + gdoom_agent_utils.get_kill_reward(env=env)/10.0+ env.agent.episode_step_count/1000.0
-            return game_reward + gdoom_agent_utils.get_kill_reward(env=env) #+ gdoom_agent_utils.get_ammo_reward(env=env) / 10
+            gdoom_agent_utils.get_kill_reward(env=env)
+            return game_reward + gdoom_agent_utils.get_ammo_reward(env=env) / 10
 
         if params.scenario == 'deadly_corridor':
             return (game_reward / 5 + gdoom_agent_utils.get_health_reward(env=env) + gdoom_agent_utils.get_kill_reward(env=env) + gdoom_agent_utils.get_ammo_reward(env=env)) / 100.
@@ -91,8 +77,50 @@ class Agent():
         else:
             return game_reward
 
+    # def get_custom_reward(self, env, game_reward):
+    #     """
+    #     Description
+    #     --------------
+    #     Final reward reshaped.
+    #
+    #     Parameters
+    #     --------------
+    #     game_reward : float, reward provided by the environment
+    #     """
+    #     # env.agent.last_total_health = env.game.get_game_variable(GameVariable.HEALTH)
+    #     # env.agent.last_total_ammo2 = env.game.get_game_variable(GameVariable.AMMO2)
+    #     # env.agent.last_total_kills = env.game.get_game_variable(GameVariable.KILLCOUNT)
+    #     # return game_reward
+    #
+    #     if params.scenario == 'basic':
+    #         gdoom_agent_utils.get_kill_reward(env=env)
+    #         gdoom_agent_utils.get_ammo_reward(env=env)
+    #         return game_reward / 100.0
+    #
+    #     if params.scenario == 'defend_the_center':
+    #         # self.last_total_kills = env.game.get_game_variable(GameVariable.KILLCOUNT)
+    #
+    #
+    #         kill_reward = gdoom_agent_utils.get_kill_reward(env=env)/10.0
+    #         if (kill_reward != 0):
+    #             gdoom_agent_utils.get_ammo_reward(env=env)
+    #             return (game_reward + kill_reward + env.agent.episode_step_count/1000.0)/1000.0
+    #         else:
+    #             return (game_reward-  gdoom_agent_utils.get_ammo_reward(env=env)**2)/1000.0
+    #         return game_reward -  gdoom_agent_utils.get_ammo_reward(env=env)**2 + gdoom_agent_utils.get_kill_reward(env=env)/10.0+ env.agent.episode_step_count/1000.0
+    #         return game_reward + gdoom_agent_utils.get_kill_reward(env=env) #+ gdoom_agent_utils.get_ammo_reward(env=env) / 10
+    #
+    #     if params.scenario == 'deadly_corridor':
+    #         return (game_reward / 5 + gdoom_agent_utils.get_health_reward(env=env) + gdoom_agent_utils.get_kill_reward(env=env) + gdoom_agent_utils.get_ammo_reward(env=env)) / 100.
+    #
+    #     if params.scenario == 'my_way_home':
+    #         return game_reward
+    #
+    #     else:
+    #         return game_reward
+
     def retrain_handle(self, sess, s, ep_done, max_episodes, gamma, rnn_state):
-        # with sess.as_default(), sess.graph.as_default():
+        with sess.as_default(), sess.graph.as_default():
             if (len(self.local_AC.episode_buffer) == params.n_steps and
                 ep_done != True and
                 self.episode_step_count != max_episodes - 1):
@@ -136,54 +164,55 @@ class Agent():
         gamma              : Float, discount factor
         bootstrap_value    : Float, bootstraped value function if episode is not finished
         """
-        rollout = np.array(rollout)
-        observations, actions, rewards, next_observations, _, values = rollout.T
+        with sess.as_default(), sess.graph.as_default():
+            rollout = np.array(rollout)
+            observations, actions, rewards, next_observations, _, values = rollout.T
 
-        # Process the rollout by constructing variables for the loss functions
-        self.rewards_plus = np.asarray(rewards.tolist() + [bootstrap_value])
-        discounted_rewards = gdoom_agent_utils.discount(self.rewards_plus,gamma)[:-1]
-        self.value_plus = np.asarray(values.tolist() + [bootstrap_value])
-        advantages = discounted_rewards - self.value_plus[:-1]
+            # Process the rollout by constructing variables for the loss functions
+            self.rewards_plus = np.asarray(rewards.tolist() + [bootstrap_value])
+            discounted_rewards = gdoom_agent_utils.discount(self.rewards_plus,gamma)[:-1]
+            self.value_plus = np.asarray(values.tolist() + [bootstrap_value])
+            advantages = discounted_rewards - self.value_plus[:-1]
 
-        # Update the local Actor-Critic network using gradients from loss
-        feed_dict = {self.local_AC.target_v:discounted_rewards,
-                     self.local_AC.inputs:np.vstack(observations),
-                     self.local_AC.actions:actions,
-                     self.local_AC.advantages:advantages,
-                     self.local_AC.state_in[0]:self.batch_rnn_state[0],
-                     self.local_AC.state_in[1]:self.batch_rnn_state[1]}
+            # Update the local Actor-Critic network using gradients from loss
+            feed_dict = {self.local_AC.target_v:discounted_rewards,
+                         self.local_AC.inputs:np.vstack(observations),
+                         self.local_AC.actions:actions,
+                         self.local_AC.advantages:advantages,
+                         self.local_AC.state_in[0]:self.batch_rnn_state[0],
+                         self.local_AC.state_in[1]:self.batch_rnn_state[1]}
 
-        if params.use_ppo:
-            old_policy = sess.run([self.local_AC.responsible_outputs],feed_dict=feed_dict)
-            feed_dict.update({self.local_AC.old_policy:old_policy[0]})
+            if params.use_ppo:
+                old_policy = sess.run([self.local_AC.responsible_outputs],feed_dict=feed_dict)
+                feed_dict.update({self.local_AC.old_policy:old_policy[0]})
 
-        self.t_l, self.v_l,self.p_l,self.e_l,self.g_n,self.v_n, self.batch_rnn_state,_ = sess.run([self.local_AC.loss,
-                                                                                         self.local_AC.value_loss,
-                                                                                         self.local_AC.policy_loss,
-                                                                                         self.local_AC.entropy,
-                                                                                         self.local_AC.grad_norms,
-                                                                                         self.local_AC.var_norms,
-                                                                                         self.local_AC.state_out,
-                                                                                         self.local_AC.apply_grads],
-                                                                                        feed_dict=feed_dict)
+            self.t_l, self.v_l,self.p_l,self.e_l,self.g_n,self.v_n, self.batch_rnn_state,_ = sess.run([self.local_AC.loss,
+                                                                                             self.local_AC.value_loss,
+                                                                                             self.local_AC.policy_loss,
+                                                                                             self.local_AC.entropy,
+                                                                                             self.local_AC.grad_norms,
+                                                                                             self.local_AC.var_norms,
+                                                                                             self.local_AC.state_out,
+                                                                                             self.local_AC.apply_grads],
+                                                                                            feed_dict=feed_dict)
 
-        Losses = [self.t_l, self.v_l, self.p_l, self.e_l]
-        Grad_vars = [self.g_n, self.v_n]
+            Losses = [self.t_l, self.v_l, self.p_l, self.e_l]
+            Grad_vars = [self.g_n, self.v_n]
 
-        # Update the local ICM network using gradients from loss
-        if params.use_curiosity:
-            feed_dict_P = {self.local_Pred.s1:np.vstack(observations),
-                           self.local_Pred.s2:np.vstack(next_observations),
-                           self.local_Pred.aindex:actions}
+            # Update the local ICM network using gradients from loss
+            if params.use_curiosity:
+                feed_dict_P = {self.local_Pred.s1:np.vstack(observations),
+                               self.local_Pred.s2:np.vstack(next_observations),
+                               self.local_Pred.aindex:actions}
 
-            self.Inv_l, self.Forward_l, _ = sess.run([self.local_Pred.invloss,
-                                                      self.local_Pred.forwardloss,
-                                                      self.local_Pred.apply_grads],
-                                                     feed_dict=feed_dict_P)
+                self.Inv_l, self.Forward_l, _ = sess.run([self.local_Pred.invloss,
+                                                          self.local_Pred.forwardloss,
+                                                          self.local_Pred.apply_grads],
+                                                         feed_dict=feed_dict_P)
 
-            Losses += [self.Inv_l,self.Forward_l]
+                Losses += [self.Inv_l,self.Forward_l]
 
-        return list(np.array(Losses)/len(rollout))+Grad_vars
+            return list(np.array(Losses)/len(rollout))+Grad_vars
 
     def after_ep_util_handle(self, sess, gamma, saver, model_path):
         # Update containers for tensorboard summary

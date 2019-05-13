@@ -3,6 +3,8 @@ from utils.network_params import *
 from vizdoom import GameVariable
 import scipy
 
+import scipy.signal
+
 import moviepy.editor as mpy
 
 
@@ -79,8 +81,8 @@ def get_health_reward(env):
     if d_health == 0:
         return 0
     elif d_health < 0:
-        return -d_health
-        # return -5
+        # return -d_health
+        return -5
 
 def get_ammo_reward(env):
     """
@@ -188,47 +190,42 @@ def make_gif(images, fname, fps=24):
 
 
     """
-
     def make_frame(t):
-        try:
-            x = images[int(fps * t)]
-        except:
-            x = images[-1]
-
-        #  WE ARE SKIPPING THE FIRST FRAME BECAUSE IT IS LAZY WITH FUCKED UP DIMENSIONS
-
-        x = images[0]
-        if (int(t == 0)):
-            x = images[1]
-        else:
-            try:
-                x = images[int(fps * t)]
-            except:
-                x = images[-1]
-        # print(x.shape)
-
-        # print(x)
-        # print(np.array(x))
-        #
-        # print(len(x))
-        # print(np.array(x).shape)
-        # x = np.array(x)[0]
-        # return_frame = x.astype(np.uint8)
-
-        try:
-            return_frame = x.astype(np.uint8)
-        except:
-            print("lazyframe transfer")
-            #render from LazyFrame
-            # x = np.array(x)[:, :, 0]
-            x = x[:,:,0]
-            x= np.array(x)
-            return_frame = x.astype(np.uint8)
-        return return_frame
-
-    clip = mpy.VideoClip(make_frame, duration=len(images) / fps)
+        try: x = images[int(fps*t)]
+        except: x = images[-1]
+        return x.astype(np.uint8)
+    clip = mpy.VideoClip(make_frame, duration=len(images)/fps)
     clip.fps = fps
     clip.write_gif(fname, program='ffmpeg', fuzz=50, verbose=False)
+
+    # def make_frame(t):
+    #     try:
+    #         x = images[int(fps * t)]
+    #     except:
+    #         x = images[-1]
+    #
+    #     #  WE ARE SKIPPING THE FIRST FRAME BECAUSE IT IS LAZY WITH FUCKED UP DIMENSIONS
+    #
+    #     x = images[0]
+    #     if (int(t == 0)):
+    #         x = images[1]
+    #     else:
+    #         try:
+    #             x = images[int(fps * t)]
+    #         except:
+    #             x = images[-1]
+    #     try:
+    #         return_frame = x.astype(np.uint8)
+    #     except:
+    #         print("lazyframe transfer")
+    #         x = x[:,:,0]
+    #         x= np.array(x)
+    #         return_frame = x.astype(np.uint8)
+    #     return return_frame
+    #
+    # clip = mpy.VideoClip(make_frame, duration=len(images) / fps)
+    # clip.fps = fps
+    # clip.write_gif(fname, program='ffmpeg', fuzz=50, verbose=False)
 
 def initialize_containers(agent):
     """

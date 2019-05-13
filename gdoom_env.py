@@ -95,13 +95,17 @@ class GDoomEnv(gym.Env):
         # in the NN -- chnaged to 1 from 3
         # self.observation_space = spaces.Box(low=0, high=255, shape=(self.screen_height, self.screen_width, 3))
         self.game = vizdoom.DoomGame()
+        self.game.load_config(os.path.join("scenarios", params.scenario + ".cfg"))
+        self.game.set_doom_scenario_path(os.path.join("scenarios", params.scenario + ".wad"))
+        self.game.set_window_visible(False)
+        self.game.init()
+
         self.accumulated_reward = 0
 
         self.actions = gdoom_utils.button_combinations(scenario=params.scenario)
+        #actions
         # [move left, move right, shoot, move forward, move backwards, turn left, turn right]
-        # self.actions = [[0, 0, 0, 0, 0, 0, 1] for i in range(10)]
-        # print(self.actions)
-        # print(len(self.actions))
+
         self.agent = gdoom_agent.Agent(actions = self.actions,
                                        s_size = state_size,
                                        a_size = action_size,
@@ -155,6 +159,7 @@ class GDoomEnv(gym.Env):
 
         dp = os.path.dirname(vizdoom.__file__)
         self.game = vizdoom.DoomGame()
+
         # self.level = 0
 
         scenario = dp + "/scenarios/" + DOOM_SETTINGS[self.level][CONFIG]
@@ -196,23 +201,13 @@ class GDoomEnv(gym.Env):
         else:
             skiprate = 1 ##for human
 
-        prev_misc = self.game.get_state().game_variables
-        misc = prev_misc
+        # prev_misc = self.game.get_state().game_variables
+        # misc = prev_misc
         action_index = int(action_index)
         assert(isinstance(action_index, int))
         if action_index >= 0:
-            #one hot encoding
-            # a_t = np.zeros([self.action_space.n])
-            # a_t[action_index] = 1
-            # a_t = a_t.astype(int)
-            # # get reward from executing action
-            # reward = self.agent.get_custom_reward(self, self.game.make_action(a_t.tolist()))
 
             a_t = self.actions[action_index]
-            # if (self.agent.name == "agent_0"):
-            #     print("action: {}".format(a_t))
-            # get reward from executing action
-
             reward = self.agent.get_custom_reward(self, self.game.make_action(a_t, skiprate))
         elif action_index == -1:
             # get reward from executing action
@@ -220,70 +215,46 @@ class GDoomEnv(gym.Env):
         elif self.mode == CPU:
             raise Exception("Error")
 
-
-        #I AM NOT SKIPPING ANY FRAMES
-        # self.game.advance_action(skiprate)
-
         #added from a3c
         # r_t = self.agent.get_custom_reward(self.env.make_action(self.actions[action_index], 2))
 
 
         # r_t = self.game.get_last_reward()#???????????????????????????????/
         is_finished = self.game.is_episode_finished()
-        state = self.game.get_state()
-
-        # if done == False:
-        #     s1 = self.env.get_state().screen_buffer
-        #     self.agent.episode_frames.append(s1)
-        #     s1 = process_frame(s1, crop, resize)
-        # else:
-        #     s1 = s
 
         if is_finished:
             if self.mode == HUMAN or self.mode == CPU:
                 # print("Total reward accumulated: ", self.info['accumulated_reward'], " time alive ", self.info['time_alive'], " kills ", self.info['kills'])
                 pass
             info = {}
-            image_buffer = np.zeros(shape=(self.screen_height, self.screen_width), dtype=np.uint8)
-            # think about having no change
-            # s1 = s
+            # image_buffer = np.zeros(shape=(self.screen_height, self.screen_width), dtype=np.uint8)
+            image_buffer = None
 
         else:
+            state = self.game.get_state()
             image_buffer = state.screen_buffer
-            # TRANSPOSE FOR RGB - change
-            # image_buffer = np.transpose(image_buffer.copy(), [1, 2, 0])
             self.agent.episode_frames.append(image_buffer)
-            # if (len(self.agent.episode_frames) % 3 == 0):
-            #     images = np.array(self.agent.episode_frames)
-            #     gif_path = os.path.join(params.frames_path, 'gyma3c' + str(2) + '.gif')
-            #     gdoom_agent_utils.make_gif(images, gif_path)
 
-            # images = np.array(image_buffer)
-            # gif_path = os.path.join(params.frames_path, 'gyma3c' + str(self.agent.episode_count) + '.gif')
-            # gdoom_agent_utils.make_gif(images, gif_path)
-
-            # self.agent.episode_frames.append(copy.deepcopy(image_buffer))
-            # image_buffer = np.transpose(image_buffer.copy(), [1, 2, 0])
-            misc = state.game_variables
-            info = {s: misc[k] for k,(s,_) in enumerate(collect_variables)}##it just saves the variables in a dictionary
-
-            self.info['time_alive'] += 1
-            self.info['kills'] = info['kills'] # total kills
-            if False: ##this is never executed
-                import matplotlib.pyplot as plt
-                plt.imshow(image_buffer.copy().swapaxes(0,1))
-                plt.show()
+            # misc = state.game_variables
+            # info = {s: misc[k] for k,(s,_) in enumerate(collect_variables)}##it just saves the variables in a dictionary
+            #
+            # self.info['time_alive'] += 1
+            # self.info['kills'] = info['kills'] # total kills
+            # if False: ##this is never executed
+            #     import matplotlib.pyplot as plt
+            #     plt.imshow(image_buffer.copy().swapaxes(0,1))
+            #     plt.show()
 
         # it is shaped before sent out
         # reward = self.shape_reward(reward, misc, prev_misc) ##reward of the last game
 
-        self.info['accumulated_reward'] += reward
-
-        info = self.info.copy()
-        info['accumulated_reward'] = self.accumulated_reward
-        info['reward'] = reward
-        info['time_alive'] = self.time_alive
-        return image_buffer, reward, is_finished, info
+        # self.info['accumulated_reward'] += reward
+        #
+        # info = self.info.copy()
+        # info['accumulated_reward'] = self.accumulated_reward
+        # info['reward'] = reward
+        # info['time_alive'] = self.time_alive
+        return image_buffer, reward, is_finished#, info
 
     def get_HWC(self):
         return 0
@@ -315,30 +286,12 @@ class GDoomEnv(gym.Env):
         self.info['time_alive'] = 0
         self.info['accumulated_reward'] = 0
         self.info['kills'] = 0
-
-        # image_buffer = np.transpose(image_buffer, [2, 1, 0])
-        # TRANSPOSE FOR RGB - change
-        # return np.transpose(image_buffer.copy(), [1, 2, 0])
         return image_buffer.copy()
-
-
-from gym.envs.gdoom.wrappers.gdoom_wrappers import SetPlayingMode
-from gym.envs.gdoom.wrappers.gdoom_wrappers import GRewardScaler, GPreprocessFrame
-from baselines.common.atari_wrappers import FrameStack
 
 def gdoom_openaigym_wrapper(Cls):
     class NewCls(object):
         def __init__(self,level=2, frame_size=64, mode=CPU, *args,**kwargs):
             self.env = Cls(level=level, *args, **kwargs)
-            # self.env = GRewardScaler(self.env, scale=1)
-            # if mode == CPU:
-            #     # GPreprocessFrame sets the frame to grayscale and resizes to self.height, self.width (defaults to 96x96)
-            #     # self.env = GPreprocessFrame(self.env, size=frame_size)
-            #     # here set how many frames you save: this will affect the size of the data later on
-            #     # in the NN -- chnaged to 1 from 3
-            #     self.env = FrameStack(self.env, 1)
-            # else:
-            #     self.env = SetPlayingMode(target_mode=HUMAN)(self.env)
 
         def __getattribute__(self,s):
             """
@@ -368,26 +321,6 @@ def gdoom_openaigym_wrapper(Cls):
 def train(env, max_episodes, gamma, sess, coord, saver, transpose=True, fps=30, zoom=None, callback=None, keys_to_action=None):
     #added parameters needed from train.py
 
-    # obs_s = env.observation_space
-    # assert type(obs_s) == gym.spaces.box.Box
-    # assert len(obs_s.shape) == 2 or (len(obs_s.shape) == 3 and obs_s.shape[2] in [1, 3])
-
-    # keys_to_action = None
-    # if keys_to_action is None:
-
-
-    # keys_to_action = env.get_keys_to_action()
-    #
-    # relevant_keys = set(sum(map(list, keys_to_action.keys()), []))
-
-    # if transpose:
-    #     video_size = env.observation_space.shape[1], env.observation_space.shape[0]
-    # else:
-    #     video_size = env.observation_space.shape[0], env.observation_space.shape[1]
-    #
-    # if zoom is not None:
-    #     video_size = int(video_size[0] * zoom), int(video_size[1] * zoom)
-
     pressed_keys = []
     running = True
     env_done = True
@@ -402,9 +335,10 @@ def train(env, max_episodes, gamma, sess, coord, saver, transpose=True, fps=30, 
         while (not coord.should_stop()) and (env.agent.episode_count < max_episodes):
 
             rnn_state = gdoom_utils.setup_network(sess, env.agent)
+            env.game.new_episode()
             #reset the frames to gif every episode
             ep_done = False
-            obs = env.reset()
+            # obs = env.reset()
 
             #reset loss arrays (do it here, because we need to initialize it first time and make sure it's not empty printed)
             env.agent.v_l_array = []
@@ -412,35 +346,24 @@ def train(env, max_episodes, gamma, sess, coord, saver, transpose=True, fps=30, 
             env.agent.e_l_array = []
             env.agent.t_l_array = []
 
+
+            obs = env.game.get_state().screen_buffer
             env.agent.episode_frames.append(obs)
             obs = gdoom_utils.process_frame(obs, crop, resize)
 
 
             while(not(ep_done)):
-
-                # if env_done:
-                #     env_done = False
-                #     obs = env.reset()
-                #     env.agent.episode_frames.append(obs)
-                #     obs = gdoom_utils.process_frame(obs, crop, resize)
-                # else:
-                # THIS IS WHERE IT GETS ITS ACTIONS
-                # THE ACTION ITSELF IS THE VALUE OF THE DICT:
-                # print(keys_to_action.get(tuple(sorted(pressed_keys)), 0))
-                # THE DICT HAS KEY AS ASCII VALUE OF THE BUTTON TO PRESS AND VALUE AS THE VALUE GIVEN TO IT BY THE ENV
-
                 a_dist, v, rnn_state, action_index = env.agent.get_policy_action(sess=sess,
                                                                                 obs=obs,
-                                                                                rnn_state=rnn_state)#keys_to_action.get(tuple(sorted(pressed_keys)), 1)
-                # added here because if you scroll those events in the pygame loop are registered only after human input
-                # pressed_keys.append(action)
-
-
+                                                                                rnn_state=rnn_state)
 
                 prev_obs = obs
-                obs, rew, ep_done, info = env.step(action_index)
-
-                obs = gdoom_utils.process_frame(obs, crop, resize)
+                # obs, rew, ep_done, info = env.step(action_index)
+                obs, rew, ep_done = env.step(action_index)
+                if (ep_done == True):
+                    obs = prev_obs
+                else:
+                    obs = gdoom_utils.process_frame(obs, crop, resize)
 
                 if callback is not None:
                     #train the network here
@@ -464,8 +387,6 @@ def train(env, max_episodes, gamma, sess, coord, saver, transpose=True, fps=30, 
                                            model_path =env.model_path)
 
             total_frames += env.agent.episode_step_count
-            # print("Total frames: {}".format(total_frames))
-
             # reset all episode stats
 
             env.agent.episode_values = []
@@ -479,24 +400,21 @@ def train(env, max_episodes, gamma, sess, coord, saver, transpose=True, fps=30, 
 
 def after_step_callback(env, prev_obs, obs, action, reward, ep_done, v, sess, max_episodes, gamma, rnn_state):
     # Append step to buffer
-    env.agent.local_AC.episode_buffer.append([obs, action, reward, prev_obs, False, v[0, 0]])
+    env.agent.local_AC.episode_buffer.append([prev_obs, action, reward, obs, False, v[0, 0]])
+    #consider
+    # env.agent.local_AC.episode_buffer.append([prev_obs, action, reward, obs, ep_done, v[0, 0]])
 
     # Update variables
     env.agent.episode_values.append(v[0, 0])
     env.agent.episode_reward += reward
     env.agent.episode_step_count += 1
 
-    # try:
-        # try to see if current agent has an option to retrain the network after K steps
     env.agent.retrain_handle(sess=sess,
                          s=obs,
                          ep_done=ep_done,
                          max_episodes=max_episodes,
                          gamma=gamma,
                          rnn_state=rnn_state)
-    # except:
-    #     print("No retrain handle")
-    #     pass
 
     if ep_done == True:
         # Print perfs of episode
@@ -511,23 +429,6 @@ def after_step_callback(env, prev_obs, obs, action, reward, ep_done, v, sess, ma
 def play(env, transpose=True, fps=30, zoom=None, callback=None, keys_to_action=None):
     pass
 
-from baselines.common.atari_wrappers import FrameStack
-
-# # Standard stack when env used by learner. DEPRECATED
-# def make_env(i, state_size, action_size, trainer, model_path, level=0, frame_size=96):
-#     """
-#     Create an environment with some standard wrappers.
-#     """
-#     raise DeprecationWarning("Oldie")
-#
-#     #Check parameters
-#     env = GDoomEnv(i, state_size, action_size, trainer, model_path)
-#     env = GRewardScaler(env, scale=1)
-#     env = GPreprocessFrame(env,size=frame_size)
-#     env = FrameStack(env, 4)
-#     return env
-
-# see __init__ for how this is registered in the gym
 @gdoom_openaigym_wrapper
 class WGDoomEnv(GDoomEnv):
     pass
@@ -540,12 +441,11 @@ def getPossibleAction(scenario):
 
 if __name__ == "__main__":
     print("GDoomEnv called")
-    # from gym.utils.play import play
+
     import numpy as np
 
     # Make a CPU environemnt the good ol' way (not recommended, see __init__.py).
     genv = WGDoomEnv(level=2, frame_size=89)
-    # genv.reset() ##It is already done in the init, i do not understant the need here
     a, _, _, _ = genv.step(0)
     print( np.asarray(a).shape )
 
@@ -557,25 +457,3 @@ if __name__ == "__main__":
     env_human = gym.make("doom_scenario2_human-v0")
     frame = env_human.reset()
     print("Frame size for human player: ", np.asarray(frame).shape)
-
-    # env2 = SetPlayingMode(target_mode=HUMAN)(env2)
-    # isPlay = True
-    # if isPlay:
-    #     play(env_cpu, fps=32)
-
-
-    # train(env= env_cpu,
-    #       max_episodes = 1000,
-    #       gamma,
-    #       sess,
-    #       coord,
-    #       saver,
-    #       transpose=True,
-    #       fps=30,
-    #       zoom=None,
-    #       callback=None,
-    #       keys_to_action=None)
-
-
-    # else:
-    #     train.train(scenario = "defend_the_center", memory_size = 1000, stack_size = 4, batch_size = 64, resize = (120, 160), possible_action = getPossibleAction("defend_the_center"), game = genv.game)

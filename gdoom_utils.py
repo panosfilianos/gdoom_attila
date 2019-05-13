@@ -26,23 +26,30 @@ def process_frame(frame, crop, resize):
     s      : np.array, screen image cropped and resized.
     """
     y2, y1, x1, x2 = crop
-
-    # we are using a lazyframes FrameStack but taking frame 0 (out of 3 total frames)
-    # as seen below
-    # print(type(frame))
-    # print(frame.shape)
-    # a lot of dimensions for RGB - change
-    # s = frame[y2:y1, x1:x2, 0]
-    s = frame[y2:y1, x1:x2]
-    # this way the output is of size resize[0] * resize[1] = height * width after resizing which is
-    # the case for the NNs input also, if we want to stack frames, we might as well but we have to change
-    # the NNs input likewise
+    s = frame[y2:y1,x1:x2]
+    s = scipy.misc.imresize(s,list(resize))
+    s = np.reshape(s,[np.prod(s.shape)]) / 255.0
+    return s
 
 
-    #check for efficiency
-    s = np.array(Image.fromarray(s).resize(list(resize)))
-    # s = scipy.misc.imresize(s, list(resize))
-    s = np.reshape(s, [np.prod(s.shape)]) / 255.0
+    # y2, y1, x1, x2 = crop
+    #
+    # # we are using a lazyframes FrameStack but taking frame 0 (out of 3 total frames)
+    # # as seen below
+    # # print(type(frame))
+    # # print(frame.shape)
+    # # a lot of dimensions for RGB - change
+    # # s = frame[y2:y1, x1:x2, 0]
+    # s = frame[y2:y1, x1:x2]
+    # # this way the output is of size resize[0] * resize[1] = height * width after resizing which is
+    # # the case for the NNs input also, if we want to stack frames, we might as well but we have to change
+    # # the NNs input likewise
+    #
+    #
+    # #check for efficiency
+    # s = np.array(Image.fromarray(s).resize(list(resize)))
+    # # s = scipy.misc.imresize(s, list(resize))
+    # s = np.reshape(s, [np.prod(s.shape)]) / 255.0
     return s
 
 def setup_network(sess, agent):
@@ -68,6 +75,7 @@ def setup_network(sess, agent):
 
         # Begin new episode
         d = False
+        #we do below outside
         # agent.game.new_episode()
         agent.episode_st = time.time()
         #
