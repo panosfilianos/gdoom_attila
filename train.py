@@ -107,7 +107,7 @@ def train_agents():
 
         print('num_workers: {}'.format(num_workers))
 
-        num_workers = 1
+        # num_workers = 1
         
         # Create worker classes
         envs = []
