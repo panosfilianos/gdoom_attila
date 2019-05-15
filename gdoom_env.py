@@ -97,7 +97,7 @@ class GDoomEnv(gym.Env):
         self.game = vizdoom.DoomGame()
         self.game.load_config(os.path.join("scenarios", params.scenario + ".cfg"))
         self.game.set_doom_scenario_path(os.path.join("scenarios", params.scenario + ".wad"))
-        self.game.set_window_visible(False)
+        self.game.set_window_visible(True)
         self.game.init()
 
         self.accumulated_reward = 0
@@ -114,8 +114,8 @@ class GDoomEnv(gym.Env):
         self.curr_seed = 0
         self.mode = CPU # or human
         #from A3C name of level to GDoom settings index
-        self.level = name_to_settings_index_dict[level]
-        self.reset() # load buttons, etc.
+        # self.level = name_to_settings_index_dict[level]
+        # self.reset() # load buttons, etc.
 
 
 
@@ -168,7 +168,7 @@ class GDoomEnv(gym.Env):
         self.game.set_sound_enabled(self.enable_sound)
         # self.game.set_screen_resolution(vizdoom.ScreenResolution.RES_640X480)
         self.game.set_screen_format(vizdoom.ScreenFormat.GRAY8)
-        self.game.set_window_visible(False)
+        self.game.set_window_visible(True)
         self.game.get_available_buttons_size()
 
         self.game.set_available_game_variables([])
@@ -206,7 +206,6 @@ class GDoomEnv(gym.Env):
         action_index = int(action_index)
         assert(isinstance(action_index, int))
         if action_index >= 0:
-
             a_t = self.actions[action_index]
             reward = self.agent.get_custom_reward(self, self.game.make_action(a_t, skiprate))
         elif action_index == -1:

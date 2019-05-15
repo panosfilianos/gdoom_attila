@@ -4,7 +4,8 @@ import argparse
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Doom A3C parameters')
 
-    parser.add_argument("--scenario", type=str, choices=('basic', 'deadly_corridor', 'defend_the_center', 'defend_the_line', 'my_way_home'), 
+    parser.add_argument("--scenario", type=str, choices=('basic', 'deadly_corridor', 'defend_the_center', 'defend_the_line', 'my_way_home',
+                                                         'health_gathering', 'rocket_basic', 'predict_position'),
                         default="deadly_corridor", help="Doom scenario")
     parser.add_argument("--actions", type=str, choices=('all','single'), 
                         default="all", help="Possible actions : 'all' for combinated actions and 'single' for single actions")

@@ -83,6 +83,8 @@ def get_health_reward(env):
     elif d_health < 0:
         # return -d_health
         return -5
+    elif d_health > 0:
+        return 5
 
 def get_ammo_reward(env):
     """

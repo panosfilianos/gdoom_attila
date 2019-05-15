@@ -105,7 +105,6 @@ def button_combinations(scenario='basic'):
     actions : list, the one-hot encoded possible actions.
     """
     actions = []
-    # [move left, move right, shoot, move forward, move backwards, turn left, turn right]
 
     m_left_right = [[True, False], [False, True], [False, False]]  # move left and move right
     attack = [[True], [False]]
@@ -113,12 +112,16 @@ def button_combinations(scenario='basic'):
     t_left_right = [[True, False], [False, True], [False, False]]  # turn left and turn right
 
     if scenario == 'deadly_corridor':
-        actions = np.identity(7, dtype=int).tolist()
-        # [move left, move right, shoot, move forward, turn left, turn right]
-        actions.extend([[0, 0, 1, 0, 0, 1, 0], #shoot, turn left
-                        [0, 0, 1, 0, 0, 0, 1], #shoot, turn right
-                        [1, 0, 1, 0, 0, 0, 0], #move left, shoot
-                        [0, 1, 1, 0, 0, 0, 0]]) #move right, shoot
+        actions = np.identity(6, dtype=int).tolist()
+        actions.extend([[0, 0, 1, 0, 1, 0],
+                        [0, 0, 1, 0, 0, 1],
+                        [1, 0, 1, 0, 0, 0],
+                        [0, 1, 1, 0, 0, 0]])
+
+    if scenario == 'health_gathering':
+        actions = np.identity(3, dtype=int).tolist()
+        actions.extend([[1, 0, 1],
+                        [0, 1, 1]])
 
     if scenario == 'basic':
         for i in m_left_right:
@@ -139,6 +142,16 @@ def button_combinations(scenario='basic'):
         for i in t_left_right:
             for j in attack:
                 actions.append(i + j)
+
+    if scenario == 'predict_position':
+        actions = np.identity(3, dtype=int).tolist()
+        actions.extend([[1, 0, 1],
+                        [0, 1, 1]])
+
+    if scenario == 'rocket_basic':
+        actions = np.identity(3, dtype=int).tolist()
+        actions.extend([[1, 0, 1],
+                        [0, 1, 1]])
 
     return actions
 

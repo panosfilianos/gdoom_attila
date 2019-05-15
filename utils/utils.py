@@ -81,6 +81,11 @@ def button_combinations(scenario='basic'):
                         [1, 0, 1, 0, 0, 0],
                         [0, 1, 1, 0, 0, 0]])
 
+    if scenario=='health_gathering':
+        actions = np.identity(3,dtype=int).tolist()
+        actions.extend([[1, 0, 1],
+                        [0, 1, 1]])
+
     if scenario=='basic':
         for i in m_left_right:
             for j in attack:
@@ -100,6 +105,18 @@ def button_combinations(scenario='basic'):
         for i in t_left_right:
             for j in attack:
                 actions.append(i+j)
+
+    if scenario=='predict_position':
+        actions = np.identity(3,dtype=int).tolist()
+        actions.extend([[1, 0, 1],
+                        [0, 1, 1]])
+
+    if scenario=='rocket_basic':
+        actions = np.identity(3,dtype=int).tolist()
+        actions.extend([[1, 0, 1],
+                        [0, 1, 1]])
+
+    print(actions)
 
     return actions
 

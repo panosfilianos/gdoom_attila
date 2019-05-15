@@ -49,8 +49,19 @@ elif params.scenario == 'defend_the_line':
         action_size = 3
     
     state_size = np.prod(resize)
+
+elif params.scenario == 'predict_position' or params.scenario == 'rocket_basic':
+    resize = (84, 159)
+    crop = (40, -32, 1, -1)
+
+    if params.actions == 'all':
+        action_size = 5
+    elif params.actions == 'single':
+        action_size = 3
+
+    state_size = np.prod(resize)
     
-elif params.scenario == 'my_way_home':
+elif params.scenario == 'my_way_home' or params.scenario == 'health_gathering':
     resize = (84,112)
     crop = (1,-1,1,-1)
     

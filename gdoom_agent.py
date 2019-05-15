@@ -74,6 +74,17 @@ class Agent():
         if params.scenario == 'my_way_home':
             return game_reward
 
+        if params.scenario == 'defend_the_line':
+            gdoom_agent_utils.get_kill_reward(env=env)
+            return game_reward + gdoom_agent_utils.get_health_reward(env=env) / 10
+
+        if params.scenario == 'predict_position' or params.scenario == 'rocket_basic':
+            gdoom_agent_utils.get_kill_reward(env=env)
+            return game_reward + gdoom_agent_utils.get_ammo_reward(env=env) / 10
+
+        if params.scenario == 'health_gathering':
+            return (game_reward / 5 + gdoom_agent_utils.get_health_reward(env=env)) / 100
+
         else:
             return game_reward
 
