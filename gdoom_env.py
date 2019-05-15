@@ -97,6 +97,10 @@ class GDoomEnv(gym.Env):
         self.game = vizdoom.DoomGame()
         self.game.load_config(os.path.join("scenarios", params.scenario + ".cfg"))
         self.game.set_doom_scenario_path(os.path.join("scenarios", params.scenario + ".wad"))
+        dp = os.path.dirname(vizdoom.__file__)
+        scenario = dp + "/scenarios/" + DOOM_SETTINGS[self.level][CONFIG]
+        print("Doom> Loading level: " + scenario)
+        self.game.set_screen_format(vizdoom.ScreenFormat.GRAY8)
         self.game.set_window_visible(False)
         self.game.init()
 
@@ -114,8 +118,8 @@ class GDoomEnv(gym.Env):
         self.curr_seed = 0
         self.mode = CPU # or human
         #from A3C name of level to GDoom settings index
-        self.level = name_to_settings_index_dict[level]
-        self.reset() # load buttons, etc.
+        # self.level = name_to_settings_index_dict[level]
+        # self.reset() # load buttons, etc.
 
 
 
@@ -168,7 +172,7 @@ class GDoomEnv(gym.Env):
         self.game.set_sound_enabled(self.enable_sound)
         # self.game.set_screen_resolution(vizdoom.ScreenResolution.RES_640X480)
         self.game.set_screen_format(vizdoom.ScreenFormat.GRAY8)
-        self.game.set_window_visible(True)
+        self.game.set_window_visible(False)
         self.game.get_available_buttons_size()
 
         self.game.set_available_game_variables([])
