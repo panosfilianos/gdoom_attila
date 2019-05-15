@@ -97,7 +97,7 @@ class GDoomEnv(gym.Env):
         self.game = vizdoom.DoomGame()
         self.game.load_config(os.path.join("scenarios", params.scenario + ".cfg"))
         self.game.set_doom_scenario_path(os.path.join("scenarios", params.scenario + ".wad"))
-        self.game.set_window_visible(True)
+        self.game.set_window_visible(False)
         self.game.init()
 
         self.accumulated_reward = 0
@@ -114,8 +114,8 @@ class GDoomEnv(gym.Env):
         self.curr_seed = 0
         self.mode = CPU # or human
         #from A3C name of level to GDoom settings index
-        # self.level = name_to_settings_index_dict[level]
-        # self.reset() # load buttons, etc.
+        self.level = name_to_settings_index_dict[level]
+        self.reset() # load buttons, etc.
 
 
 
